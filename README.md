@@ -1,12 +1,11 @@
 ## Introduction
 
-`vue-admin-next` is a extremely beautiful admin management system template uses `vue-cli3` and `element-ui`. 
+`vue-eden` is a extremely beautiful admin management system template uses `vue-cli3` and `element-ui`. 
 
 preview comming soon ...
 
 ## Features
 
-- [x] I18n
 - [ ] Base Layout
 - [ ] Login / Logout
 - [ ] Permission authentication

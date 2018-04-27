@@ -19,7 +19,7 @@ http.interceptors.response.use(
       if (res.error.code === '') { // 接口自定义错误代码
         // 移除登陆token 显示接口错误消息 
       }
-      process.env.NODE_ENV !== 'production' && console.error(res)
+      // process.env.NODE_ENV !== 'production' && console.error(res)
       return Promise.reject(res)
     }
     return Promise.resolve(res)
@@ -30,14 +30,14 @@ http.interceptors.response.use(
     }))
     let obj = {}
 
-    if (error.code === 'ECONNABORTED' || err.response.status == 504 || err.response.status == 404) {
+    if (error.code === 'ECONNABORTED' || error.response.status == 504 || error.response.status == 404) {
       obj = errorAssign({ code: 'timeout', message: '请求超时' })
-    } else if (err.response.status == 403) {
+    } else if (error.response.status == 403) {
       obj = errorAssign({ code: 'crossError', message: '权限不足' })
     }else {
       obj = errorAssign({ code: error.response.status, message: '请求出错' })
     }
-    process.env.NODE_ENV !== 'production' && console.error(obj)
+    // process.env.NODE_ENV !== 'production' && console.error(obj)
     return Promise.reject(obj)
   }
 )

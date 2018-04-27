@@ -32,6 +32,7 @@
     "postcss-url": "^7.3.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "vue-svg-icon": "^1.2.9",
     "vue-template-compiler": "^2.5.13"
   },
   "browserslist": [
