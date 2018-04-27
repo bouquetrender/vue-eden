@@ -42,7 +42,7 @@ export default {
     background: white
 
   .el-aside
-    width: 250px !important
+    width: 220px !important
     background: #556d84
     color: #fff
 </style>
