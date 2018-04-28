@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Element from 'element-ui'
 import Icon from 'vue-svg-icon/Icon.vue';
-import 'element-ui/lib/theme-chalk/index.css'
+import './theme/element-#41B883/index.css'
 import '@/assets/styl/index'
 
 import App from './App'

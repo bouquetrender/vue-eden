@@ -14,6 +14,8 @@
 
     <div class="right-area">
 
+      <langselect></langselect>
+
       <notice></notice>
       
       <fullscreen class="fullscreen"></fullscreen>
@@ -24,9 +26,9 @@
             Sakuya<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>Profile</el-dropdown-item>
-            <el-dropdown-item>Lock</el-dropdown-item>
-            <el-dropdown-item>Logout</el-dropdown-item>
+            <el-dropdown-item>{{$t('sidebarDropDown.profile')}}</el-dropdown-item>
+            <el-dropdown-item>{{$t('sidebarDropDown.lock')}}</el-dropdown-item>
+            <el-dropdown-item>{{$t('sidebarDropDown.logout')}}</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -38,12 +40,14 @@
 <script>
 import fullscreen from '@/components/fullscreen'
 import notice from '@/components/notice'
+import langselect from '@/components/langselect'
 
 export default {
   name: 'Sidebar',
   components: {
     fullscreen,
-    notice
+    notice,
+    langselect
   },
   data () {
     return {
