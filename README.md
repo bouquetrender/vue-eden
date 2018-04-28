@@ -1,17 +1,18 @@
 ## Introduction
 
-`vue-eden` is a extremely beautiful admin management system template uses `vue-cli3` and `element-ui`. 
+`vue-eden` is a extremely beautiful admin management system template uses `vue-cli3` `element-ui`. 
 
-preview comming soon ...
+preview comming soon, all the goodness is worth waiting for.
 
 ## Features
 
+- [ ] i18n
 - [ ] Base Layout
 - [ ] Login / Logout
 - [ ] Permission authentication
 - [ ] Dynamic sidebar / breadcrumb
 - [ ] Mock Data
-- [ ] documentation
+- [ ] Documentation
 - [ ] Markdown editor
 
 and more ...

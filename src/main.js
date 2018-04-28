@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Element from 'element-ui'
 import Icon from 'vue-svg-icon/Icon.vue';
 import 'element-ui/lib/theme-chalk/index.css'
-import '@/assets/styl/index.styl'
+import '@/assets/styl/index'
 
 import App from './App'
 import {router} from './router'
@@ -18,8 +18,6 @@ Vue.use(Element, {
 })
 
 Vue.config.productionTip = false
-
-Vue.prototype._VERSION = 'alpha'
 
 new Vue({
   el: '#app',

@@ -1,16 +1,15 @@
 <template>
-  <div class="main">
-    Main
+  <div>
+    demo page
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AppMain'
+  name: 'demo'
 }
 </script>
 
 <style lang="stylus" scoped>
-.main
-  padding 20px
+
 </style>

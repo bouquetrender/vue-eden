@@ -1,13 +1,15 @@
 import Cookies from 'js-cookie'
+import * as types from '../mutaion-types'
 
 const app = {
   state: {
+    version: 'Alpha 1.0',
     sidebar: {
       opened: !+Cookies.get('sidebarStatus')
     }
   },
   mutation: {
-    TOGGLE_SIDEBAR: state => {
+    [types.TOGGLE_SIDEBAR]: state => {
       if (state.sidebar.opened) {
         Cookies.set('sidebarStatus', 1)
       } else {

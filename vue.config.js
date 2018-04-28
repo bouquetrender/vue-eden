@@ -29,6 +29,7 @@ module.exports = {
     config.resolve.extensions
       .add('.js')
       .add('.vue')
+      .add('.styl')
   },
 
   productionSourceMap: true,
