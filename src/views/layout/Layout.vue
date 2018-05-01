@@ -1,12 +1,12 @@
 <template>
   <el-container>
     <el-header>
-      <side-bar />
+      <nav-bar />
     </el-header>
     
     <el-container>
       <el-aside>
-        <nav-bar />
+        <side-bar />
       </el-aside>
 
       <el-main>
