@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Element from 'element-ui'
-import Icon from 'vue-svg-icon/Icon.vue';
+import scroll from 'vue-seamless-scroll'
+import Icon from 'vue-svg-icon/Icon.vue'
 import './theme/element-#41B883/index.css'
 import '@/assets/styl/index'
 
@@ -10,8 +11,9 @@ import store from './store'
 
 import i18n from './lang'
 
-Vue.component('icon', Icon); 
+Vue.component('icon', Icon)
 
+Vue.use(scroll)
 Vue.use(Element, {
   size: 'medium',
   i18n: (key, value) => i18n.t(key, value)

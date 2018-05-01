@@ -2,7 +2,7 @@
   <div class="el-langselect">
     <el-dropdown @command="handleSetLanguage">
       <div class="el-langselect__box">
-        <icon class="el-langselect__icon" name="earth" :scale="2.8"></icon>
+        <icon class="el-langselect__icon" name="earth" :scale="2.9"></icon>
       </div>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item command="zh" :disabled="language === 'zh'">中文</el-dropdown-item>

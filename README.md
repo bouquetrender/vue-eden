@@ -1,6 +1,6 @@
 ## Introduction
 
-`vue-eden` is a extremely beautiful admin management system template uses `vue-cli3` `element-ui`. 
+`vue-eden` is a extremely beautiful admin management system template uses `vue-cli3` and `element-ui`. 
 
 preview comming soon, all the goodness is worth waiting for.
 
