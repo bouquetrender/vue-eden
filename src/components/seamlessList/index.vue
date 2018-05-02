@@ -49,17 +49,5 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.seamless-warp
-  font-size 14px
-  height 60px
-  overflow hidden
-  cursor pointer
-  &__content
-    transition color .4s
-    height 60px
-    width 100%
-    &:hover
-      color #333333
-  &__date
-    margin-right 8px
+
 </style>
