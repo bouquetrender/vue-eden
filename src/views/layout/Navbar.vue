@@ -4,7 +4,9 @@
       <icon class="el-header__icon" name="tree" :scale="4"></icon>
       <span class="el-header__title">
         VUE<span class="subtitle">EDEN</span>
-        <span class="version-wrap">{{system_version}}</span>
+        <span class="version-wrap">
+          {{system_version}}
+        </span>
       </span>
     </div>
 
@@ -23,15 +25,10 @@
     </div>
 
     <div class="right-area">
-
-      <lang-select></lang-select>
-
-      <notice></notice>
-      
-      <fullscreen class="fullscreen"></fullscreen>
-
-      <infodrop></infodrop>
-
+      <lang-select/>
+      <notice/>
+      <fullscreen class="fullscreen"/>
+      <infodrop/>
     </div>
   </div>
 </template>
@@ -129,7 +126,7 @@ right-area-width = 250px
         &__date
           margin-right 8px
     &:after
-      content: ''
+      content ''
       clear both
       display block
       width 100%
