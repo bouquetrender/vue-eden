@@ -5,7 +5,7 @@
     </el-header>
     
     <el-container>
-      <el-aside>
+      <el-aside :width="asideWidth">
         <side-bar />
       </el-aside>
 
@@ -30,6 +30,13 @@ export default {
     'nav-bar': Navbar,
     'app-main': AppMain,
     'tags-view': TagsView
+  },
+  computed: {
+    asideWidth() {
+      return this.$store.state.app.sidebar.sliderState === 'full'
+        ? '240px'
+        : '50px'
+    }
   }
 }
 </script>
@@ -47,7 +54,7 @@ export default {
     box-sizing border-box
 
   .el-aside
-    width 240px !important
+    transition width .4s
     background #556d84
     color #fff
 

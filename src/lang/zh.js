@@ -1,4 +1,8 @@
 export default {
+  route: {
+    dashboard: '首页',
+    documentation: '文档'
+  },
   app: {
     switchlang: '切换语言成功'
   },

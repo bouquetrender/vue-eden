@@ -1,6 +1,10 @@
 export default {
+  route: {
+    dashboard: 'Dashboard',
+    documentation: 'Documentation'
+  },
   app: {
-    switchlang: 'switch language success'
+    switchlang: 'Switch Language Success'
   },
   login: {
     title: 'Login Form'

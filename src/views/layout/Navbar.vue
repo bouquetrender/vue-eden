@@ -16,6 +16,8 @@
       </div>
 
       <div class="middle-area__msglist">
+        <breadcrumb />
+        
         <seamless-list 
           :messageList="messageList"
           :singleHeight="60"
@@ -25,10 +27,10 @@
     </div>
 
     <div class="right-area">
-      <lang-select/>
-      <notice/>
-      <fullscreen class="fullscreen"/>
-      <infodrop/>
+      <lang-select />
+      <notice />
+      <fullscreen class="fullscreen" />
+      <infodrop />
     </div>
   </div>
 </template>
@@ -39,6 +41,7 @@ import notice from '@/components/notice'
 import langselect from '@/components/langselect'
 import infodrop from './SidebarInfoDrop'
 import seamlessList from '@/components/seamlessList'
+import breadcrumb from '@/components/breadcrumb'
 import dayjs from 'dayjs'
 
 export default {
@@ -47,6 +50,7 @@ export default {
     fullscreen,
     notice,
     infodrop,
+    breadcrumb,
     'lang-select': langselect,
     'seamless-list': seamlessList
   },
@@ -56,15 +60,15 @@ export default {
       system_version: this.$store.state.app.version,
       messageList: [
         {
-          date: dayjs().format('YYYY/MM/DD'),
+          date: dayjs().format('YYYY-MM-DD'),
           msg: 'You have a new message from unknown name.'
         },
         {
-          date: dayjs().format('YYYY/MM/DD'),
+          date: dayjs().format('YYYY-MM-DD'),
           msg: 'Chekcout today eden system report.'
         },
         {
-          date: dayjs().format('YYYY/MM/DD'),
+          date: dayjs().format('YYYY-MM-DD'),
           msg: 'Eden system has some new update, check it.'
         }
       ]
@@ -108,21 +112,8 @@ right-area-width = 250px
       float left
       height 60px
       width 80%
-      color #565656
+      color #808080
       font-weight 500
-      .seamless-warp
-        font-size 14px
-        height 60px
-        overflow hidden
-        cursor pointer
-        &__content
-          transition color .4s
-          height 60px
-          width 100%
-          &:hover
-            color #333333
-        &__date
-          margin-right 8px
     &:after
       content ''
       clear both

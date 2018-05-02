@@ -8,7 +8,8 @@ const app = {
     version: 'Alpha 1.0',
     language: Cookies.get('language') || 'en',
     sidebar: {
-      opened: !+Cookies.get('sidebarStatus') || true
+      opened: !+Cookies.get('sidebarStatus') || true,
+      sliderState: storage.get('sliderState') || 'full'
     }
   },
   mutations: {
@@ -27,6 +28,10 @@ const app = {
     [types.SET_FIRSTLOGIN]: state => {
       state.firstLogin = 'nope'
       storage.set('firstLogin', 'nope')
+    },
+    [types.SET_SLIDERSTATE]: (state, newSliderState) => {
+      state.sidebar.sliderState = newSliderState
+      storage.set('sliderState', newSliderState)
     }
   },
   actions: {
@@ -38,6 +43,9 @@ const app = {
     },
     setFirstLogin({ commit }) {
       commit(types.SET_FIRSTLOGIN)
+    },
+    setSliderState({ commit }, newSliderState) {
+      commit(types.SET_SLIDERSTATE, newSliderState)
     }
   }
 }
