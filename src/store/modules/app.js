@@ -9,7 +9,7 @@ const app = {
     language: Cookies.get('language') || 'en',
     sidebar: {
       opened: !+Cookies.get('sidebarStatus') || true
-    },
+    }
   },
   mutations: {
     [types.TOGGLE_SIDEBAR]: state => {

@@ -22,7 +22,7 @@ export default {
       default: true
     }
   },
-  data () {
+  data() {
     return {
       status: false
     }

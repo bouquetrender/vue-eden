@@ -9,7 +9,7 @@ import Cookies from 'js-cookie'
 
 export default {
   name: 'app',
-  mounted () {
+  mounted() {
     const USERNAME = Cookies.get('username') || 'Sakuya'
     if (this.$store.state.app.firstLogin === 'yep') {
       this.$notify.info({
@@ -17,7 +17,7 @@ export default {
         message: 'First login system, You can view eden system documentation',
         duration: 6000,
         offset: 60
-      });
+      })
       this.$store.dispatch('setFirstLogin')
     }
   }

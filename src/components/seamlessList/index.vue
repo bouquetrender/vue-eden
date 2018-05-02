@@ -27,21 +27,20 @@ export default {
       type: Number,
       default: 3
     },
-    waitTime:{
+    waitTime: {
       type: Number,
       default: 2000
-    },
-  },
-  data () {
-    return {
     }
+  },
+  data() {
+    return {}
   },
   computed: {
     classOption() {
       return {
         singleHeight: this.singleHeight,
         limitMoveNum: this.limitMoveNum,
-        waitTime: this.waitTime,
+        waitTime: this.waitTime
       }
     }
   }

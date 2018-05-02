@@ -6,7 +6,7 @@ import './theme/element-#41B883/index.css'
 import '@/assets/styl/index'
 
 import App from './App'
-import {router} from './router'
+import { router } from './router'
 import store from './store'
 
 import i18n from './lang'

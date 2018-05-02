@@ -50,24 +50,22 @@ export default {
     'lang-select': langselect,
     'seamless-list': seamlessList
   },
-  mounted() {
-
-  },
+  mounted() {},
   data() {
     return {
       system_version: this.$store.state.app.version,
       messageList: [
         {
           date: dayjs().format('YYYY/MM/DD'),
-          msg: 'You have a new message from unknown name.' 
+          msg: 'You have a new message from unknown name.'
         },
         {
           date: dayjs().format('YYYY/MM/DD'),
-          msg: 'Chekcout today eden system report.' 
+          msg: 'Chekcout today eden system report.'
         },
         {
           date: dayjs().format('YYYY/MM/DD'),
-          msg: 'Eden system has some new update, check it.' 
+          msg: 'Eden system has some new update, check it.'
         }
       ]
     }
