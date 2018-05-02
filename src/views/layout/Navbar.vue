@@ -94,7 +94,7 @@ right-area-width = 250px
     display flex
 
   .left-area
-    width 240px
+    min-width 240px
     padding-left 12px
     box-sizing border-box
   
@@ -111,7 +111,7 @@ right-area-width = 250px
     &__msglist
       float left
       height 60px
-      width 80%
+      width 85%
       color #808080
       font-weight 500
     &:after
@@ -123,7 +123,7 @@ right-area-width = 250px
   .right-area
     padding-right 16px
     height 60px
-    width right-area-width
+    min-width right-area-width
     display flex
     align-items center
     justify-content flex-end

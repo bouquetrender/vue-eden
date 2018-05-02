@@ -50,8 +50,8 @@ export default {
 <style lang="stylus">
 .seamless-warp
   display inline-block
-  padding-left 40px
-  min-width 600px
+  padding-left 10px
+  min-width 300px
   font-size 14px
   height 60px
   overflow hidden
