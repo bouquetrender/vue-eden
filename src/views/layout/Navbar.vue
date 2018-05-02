@@ -14,16 +14,11 @@
       </div>
 
       <div class="middle-area__msglist">
-        <vue-seamless-scroll :class-option="classOption" class="seamless-warp" :data="messageList">
-          <ul class="seamless-warp__item">
-            <li class="seamless-warp__li" v-for="(item, key) in messageList" :key="key">
-              <div class="seamless-warp__content">
-                <span class="seamless-warp__date" v-text="item.date"></span>
-                <span class="seamless-warp__title" v-text="item.msg"></span>
-              </div>
-            </li>
-          </ul>
-        </vue-seamless-scroll>
+        <seamless-list 
+          :messageList="messageList"
+          :singleHeight="60"
+          :limitMoveNum="2"
+        />
       </div>
     </div>
 
@@ -46,6 +41,7 @@ import fullscreen from '@/components/fullscreen'
 import notice from '@/components/notice'
 import langselect from '@/components/langselect'
 import infodrop from './SidebarInfoDrop'
+import seamlessList from '@/components/seamlessList'
 import dayjs from 'dayjs'
 
 export default {
@@ -53,8 +49,9 @@ export default {
   components: {
     fullscreen,
     notice,
+    infodrop,
     'lang-select': langselect,
-    infodrop
+    'seamless-list': seamlessList
   },
   mounted() {
 
@@ -82,15 +79,6 @@ export default {
     handleSwitchNavbar() {
       this.$store.dispatch('toggleSideBar')
     }
-  },
-  computed: {
-    classOption() {
-      return {
-        singleHeight: 60,
-        limitMoveNum: 2,
-        waitTime: 2000,
-      }
-    }
   }
 }
 </script>
@@ -107,8 +95,8 @@ right-area-width = 250px
     display flex
 
   .left-area
-    width 220px
-    padding-left 8px
+    width 240px
+    padding-left 12px
     box-sizing border-box
   
   .middle-area
@@ -120,7 +108,7 @@ right-area-width = 250px
       .category-icon
         cursor pointer
         height 100%
-        margin 0 20px
+        margin 0 20px 0 15px
     &__msglist
       float left
       height 60px
@@ -162,7 +150,6 @@ right-area-width = 250px
     vertical-align middle
 
   &__title
-    margin-left -4px
     font-size 20px
     font-weight bold
     color main-color

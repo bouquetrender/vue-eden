@@ -10,25 +10,26 @@
       </el-aside>
 
       <el-main>
-        <!-- tags views here -->
+        <tags-view />
         <app-main />
       </el-main>
     </el-container>
   </el-container>
-
 </template>
 
 <script>
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import AppMain from './AppMain'
+import TagsView from './TagsView'
 
 export default {
   name: 'Layout',
   components: {
     'side-bar': Sidebar,
     'nav-bar': Navbar,
-    'app-main': AppMain
+    'app-main': AppMain,
+    'tags-view': TagsView
   }
 }
 </script>
@@ -39,15 +40,14 @@ export default {
     height 100%
 
   .el-header
-    box-sizing border-box
     padding 0
     font-size 0
     line-height 60px
     background white
-    box-shadow 0 1px 3px 0 rgba(0, 0, 0, .12), 0 0 3px 0 rgba(0, 0, 0, .04)
+    box-sizing border-box
 
   .el-aside
-    width 220px !important
+    width 240px !important
     background #556d84
     color #fff
 

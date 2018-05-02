@@ -6,14 +6,15 @@ preview comming soon, all the goodness is worth waiting for.
 
 ## Features
 
-- [ ] i18n
+- [x] i18n
 - [ ] Base Layout
-- [ ] Login / Logout
+- [ ] sidebar / breadcrumb / tags-view
+- [ ] Login / Logout / Lock
 - [ ] Permission authentication
-- [ ] Dynamic sidebar / breadcrumb
 - [ ] Mock Data
-- [ ] Documentation
-- [ ] Markdown editor
+- [ ] Markdown editor / preview
+- [ ] Screenshots
+- [ ] Eden Documentation
 
 and more ...
 

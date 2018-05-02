@@ -1,4 +1,3 @@
-// 保留小数
 export function toFixed (val, precision = 2) {
   let isNumber = Number(val)
   if (!isNaN(isNumber)) {
@@ -7,7 +6,6 @@ export function toFixed (val, precision = 2) {
   return val
 }
 
-// js精度问题， add - 加，sub - 减，mul - 乘，div - 除
 export const number = {
   add (a, b) {
     var c, d, e
@@ -21,7 +19,7 @@ export const number = {
     } catch (f) {
       d = 0
     }
-    return e = Math.pow(10, Math.max(c, d)), // eslint-disable-line
+    return e = Math.pow(10, Math.max(c, d)),
     (this.mul(a, e) + this.mul(b, e)) / e
   },
   sub (a, b) {
@@ -36,7 +34,7 @@ export const number = {
     } catch (f) {
       d = 0
     }
-    return e = Math.pow(10, Math.max(c, d)), // eslint-disable-line
+    return e = Math.pow(10, Math.max(c, d)), 
     (this.mul(a, e) - this.mul(b, e)) / e
   },
   mul (a, b) {
@@ -70,6 +68,6 @@ export const number = {
     } catch (g) {
       console.error(g)
     }
-    return c = Number(a.toString().replace('.', '')), d = Number(b.toString().replace('.', '')), this.mul(c / d, Math.pow(10, f - e)) // eslint-disable-line
+    return c = Number(a.toString().replace('.', '')), d = Number(b.toString().replace('.', '')), this.mul(c / d, Math.pow(10, f - e))
   }
 }

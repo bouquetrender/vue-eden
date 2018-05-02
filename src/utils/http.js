@@ -1,4 +1,5 @@
 import axios from 'axios'
+import * as tools from './tools'
 
 const http = axios.create({
   timeout: 30000
@@ -16,6 +17,10 @@ http.interceptors.response.use(
   response => {
     const res = response.data
     if (res.error) {
+      tools.notify({
+        type: 'error',
+        message: res.error.message
+      })
       if (res.error.code === '') { // 接口自定义错误代码
         // 移除登陆token 显示接口错误消息 
       }
