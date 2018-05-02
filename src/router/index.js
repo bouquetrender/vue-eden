@@ -23,20 +23,20 @@ Vue.use(VueRouter)
   }
 **/
 export const constantRouterMap = [
-  { 
-    path: '/401', 
-    component: _import('errorPage/401'), 
-    hidden: true 
+  {
+    path: '/401',
+    component: _import('errorPage/401'),
+    hidden: true
   },
   {
     path: '/404',
     component: _import('errorPage/404'),
-    hidden: true 
+    hidden: true
   },
-  { 
-    path: '/login', 
-    component: _import('login/index'), 
-    hidden: true 
+  {
+    path: '/login',
+    component: _import('login/index'),
+    hidden: true
   },
   {
     path: '/documentation',

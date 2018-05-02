@@ -8,6 +8,6 @@ export default {
   sidebarDropDown: {
     profile: 'Profile',
     lock: 'Lock',
-    logout: 'Logout',
+    logout: 'Logout'
   }
 }

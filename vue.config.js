@@ -1,8 +1,8 @@
 // https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/config.md
 const path = require('path')
 
-function resolve (dir) {
-  return path.join(__dirname, dir);
+function resolve(dir) {
+  return path.join(__dirname, dir)
 }
 
 module.exports = {
@@ -12,9 +12,8 @@ module.exports = {
 
   // 调整内部的 webpack 配置
   // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/webpack.md
-  configureWebpack: {
-  },
-  chainWebpack: (config) => {
+  configureWebpack: {},
+  chainWebpack: config => {
     // https://github.com/mozilla-neutrino/webpack-chain#getting-started
     config.resolve.alias
       .set('vue$', 'vue/dist/vue.esm.js')
@@ -25,7 +24,7 @@ module.exports = {
       .set('utils', resolve('src/utils'))
       .set('store', resolve('src/store'))
       .set('router', resolve('src/router'))
-    
+
     config.resolve.extensions
       .add('.js')
       .add('.vue')
@@ -57,6 +56,6 @@ module.exports = {
     https: false,
     hotOnly: false,
     // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理
-    proxy: null, // string | Object
+    proxy: null // string | Object
   }
 }

@@ -1,4 +1,4 @@
-export function toFixed (val, precision = 2) {
+export function toFixed(val, precision = 2) {
   let isNumber = Number(val)
   if (!isNaN(isNumber)) {
     return isNumber.toFixed(precision)
@@ -7,7 +7,7 @@ export function toFixed (val, precision = 2) {
 }
 
 export const number = {
-  add (a, b) {
+  add(a, b) {
     var c, d, e
     try {
       c = a.toString().split('.')[1].length
@@ -19,10 +19,11 @@ export const number = {
     } catch (f) {
       d = 0
     }
-    return e = Math.pow(10, Math.max(c, d)),
-    (this.mul(a, e) + this.mul(b, e)) / e
+    return (
+      (e = Math.pow(10, Math.max(c, d))), (this.mul(a, e) + this.mul(b, e)) / e
+    )
   },
-  sub (a, b) {
+  sub(a, b) {
     var c, d, e
     try {
       c = a.toString().split('.')[1].length
@@ -34,10 +35,11 @@ export const number = {
     } catch (f) {
       d = 0
     }
-    return e = Math.pow(10, Math.max(c, d)), 
-    (this.mul(a, e) - this.mul(b, e)) / e
+    return (
+      (e = Math.pow(10, Math.max(c, d))), (this.mul(a, e) - this.mul(b, e)) / e
+    )
   },
-  mul (a, b) {
+  mul(a, b) {
     let c = 0
     let d = a.toString()
     let e = b.toString()
@@ -51,9 +53,11 @@ export const number = {
     } catch (f) {
       console.error(f)
     }
-    return Number(d.replace('.', '')) * Number(e.replace('.', '')) / Math.pow(10, c)
+    return (
+      Number(d.replace('.', '')) * Number(e.replace('.', '')) / Math.pow(10, c)
+    )
   },
-  div (a, b) {
+  div(a, b) {
     let c = 0
     let d = 0
     let e = 0
@@ -68,6 +72,10 @@ export const number = {
     } catch (g) {
       console.error(g)
     }
-    return c = Number(a.toString().replace('.', '')), d = Number(b.toString().replace('.', '')), this.mul(c / d, Math.pow(10, f - e))
+    return (
+      (c = Number(a.toString().replace('.', ''))),
+      (d = Number(b.toString().replace('.', ''))),
+      this.mul(c / d, Math.pow(10, f - e))
+    )
   }
 }

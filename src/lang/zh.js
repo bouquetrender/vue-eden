@@ -8,6 +8,6 @@ export default {
   sidebarDropDown: {
     profile: '个人信息',
     lock: '锁定系统',
-    logout: '退出登录',
+    logout: '退出登录'
   }
 }

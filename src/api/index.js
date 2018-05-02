@@ -1,6 +1,6 @@
 import http from '@/utils/http'
 
-export function login (params) {
+export function login(params) {
   return http({
     url: '',
     method: 'post',
@@ -8,7 +8,7 @@ export function login (params) {
   })
 }
 
-export function uploadFileRequest (url, params) {
+export function uploadFileRequest(url, params) {
   return http({
     method: 'post',
     url: url,
