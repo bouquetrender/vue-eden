@@ -1,7 +1,37 @@
-# vue eden
+## Introduction
 
-empty
+`vue-eden` is a extremely beautiful admin management system template uses `vue-cli3` and `element-ui`. 
 
-# Mockjs
+preview comming soon, all the goodness is worth waiting for.
 
-mock 数据在 src/mock 目录下，只拦截 src/mock/index.js 中的 url。移除只需在 src/main.js 中移除 import './mock' 并删除 src/mock 目录。
+## Features
+
+- [x] i18n
+- [ ] Base Layout
+- [ ] sidebar / breadcrumb / tags-view
+- [ ] Login / Logout / Lock
+- [ ] Permission authentication
+- [ ] Mock Data
+- [ ] Markdown editor / preview
+- [ ] Screenshots
+- [ ] Eden Documentation
+
+and more ...
+
+## Getting started
+
+serve script will automatically open http://localhost:8863
+
+```
+# clone the project
+git clone https://github.com/PanJiaChen/vue-element-admin.git
+
+# install dependency
+npm install
+
+# develop
+npm run serve 
+
+# build for production environment
+npm run build
+```

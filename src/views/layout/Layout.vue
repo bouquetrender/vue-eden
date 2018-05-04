@@ -33,9 +33,7 @@ export default {
   },
   computed: {
     asideWidth() {
-      return this.$store.state.app.sidebar.sliderState === 'full'
-        ? '240px'
-        : '50px'
+      return this.$store.getters.getSliderState
     }
   }
 }

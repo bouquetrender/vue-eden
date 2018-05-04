@@ -1,6 +1,11 @@
 @import "normalize.css"
 @import "./variables.styl"
 
+opacity(n)
+  opacity n
+  if support-for-ie
+    filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(n * 100) + ')')
+
 .edenfont
   font-family 'Avenir', "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif
 
@@ -24,3 +29,14 @@ ul
 
 .el-notification__content p
   text-align left
+
+
+// nprogress style
+#nprogress 
+  .bar 
+    background main-color !important
+  .peg
+    box-shadow 0 0 10px main-color, 0 0 5px main-color !important
+  .spinner-icon
+    border-top-color main-color !important
+    border-left-color main-color !important

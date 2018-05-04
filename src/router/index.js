@@ -7,7 +7,7 @@ const Layout = _import('layout/Layout')
 Vue.use(VueRouter)
 
 /**
-* 参考 https://github.com/PanJiaChen/vue-element-admin/blob/master/src/router/index.js
+* https://github.com/PanJiaChen/vue-element-admin/blob/master/src/router/index.js
 * 
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
 * alwaysShow: true               if set true, will always show the root menu, whatever its child routes length
@@ -22,6 +22,7 @@ Vue.use(VueRouter)
     noCache: true                if true ,the page will no be cached(default is false)
   }
 **/
+
 export const constantRouterMap = [
   {
     path: '/401',
@@ -73,8 +74,6 @@ export const constantRouterMap = [
 ]
 
 export const router = new VueRouter({
-  routes: constantRouterMap
+  routes: constantRouterMap,
+  scrollBehavior: () => ({ y: 0 })
 })
-
-// router.beforeEach((to, from, next) => {})
-// router.afterEach((to) => {})

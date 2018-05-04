@@ -121,12 +121,10 @@ right-area-width = 250px
       width 100%
 
   .right-area
+    {flex-center}
     padding-right 16px
     height 60px
     min-width right-area-width
-    display flex
-    align-items center
-    justify-content flex-end
     .fullscreen
       height: 100%
       padding: 0 22px

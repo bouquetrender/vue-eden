@@ -7,6 +7,7 @@ import '@/assets/styl/index'
 
 import App from './App'
 import { router } from './router'
+import '@/router/routerControl'
 import store from './store'
 
 import i18n from './lang'
