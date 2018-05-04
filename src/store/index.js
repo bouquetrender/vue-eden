@@ -4,11 +4,13 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 import app from './modules/app'
+import permission from './modules/permission'
 import getters from './getters'
 
 const store = new Vuex.Store({
   modules: {
-    app
+    app,
+    permission
   },
   getters,
   strict: false
