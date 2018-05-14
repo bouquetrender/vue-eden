@@ -1,22 +1,29 @@
 <template>
   <el-menu
+    class="sidebar-menu"
     mode="vertical"
     :show-timeout="200"
     :default-active="$route.path"
     :collapse="isCollapse"
-    background-color="#304156"
+    background-color="#556d84"
     text-color="#bfcbd9"
     active-text-color="#409EFF"
-  ></el-menu>
+  >
+    <sidebar-item :routes="permission_routers"></sidebar-item>
+  </el-menu>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import sidebarItem from './SidebarItem'
 
 export default {
   name: 'Sidebar',
+  components: {
+    sidebarItem
+  },
   computed: {
-    ...mapGetters(['sidebar']),
+    ...mapGetters(['sidebar', 'permission_routers']),
     isCollapse() {
       return !this.sidebar.opened
     }
@@ -25,5 +32,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+.sidebar-menu
+  border none
+  height 100%
+  width 100% !important
 </style>
