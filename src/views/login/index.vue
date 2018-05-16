@@ -56,12 +56,26 @@ export default {
   name: 'login',
   data() {
     const validfn = (rule, value, callback) => {
-      validobj[rule.field].forEach(group => {
-        if (!useRegexp[group.valid].test(value)) {
-          return callback(new Error(group.error))
+      const _validobj = validobj[rule.field.replace(/^\S+(?=\.)\./g, '')]
+      const _typeof = (val) => (
+        Object.prototype.toString.call(val)
+          .replace(/^\S+\s/, '')
+          .replace(/]$/, '')
+          .toLocaleLowerCase()
+      )
+      for (let i = 0; i < _validobj.length; i++) {
+        let _rule = rules[_validobj[i].ruleName]
+        if (_typeof(_rule) === 'regexp') {
+          if (!_rule.test(value)) {
+            return callback(new Error(_validobj[i].error))
+          }
+        } else if (_typeof(_rule) === 'function') {
+          if (_rule(value, _validobj[i].params)) {
+            return callback(new Error(_validobj[i].error))
+          }
         }
-        callback()
-      })
+      }
+      callback()
     }
 
     return {
