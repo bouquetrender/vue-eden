@@ -1,16 +1,23 @@
 import axios from 'axios'
+import store from '@/store'
+import { getToken } from '@/utils/auth'
 import * as tools from './tools'
 
 const http = axios.create({
+  baseURL: process.env.BASE_API,
   timeout: 30000
 })
 
 // request 拦截器
 http.interceptors.request.use(
   config => {
+    if (store.getters.token) {
+      config.headers['eden-token'] = getToken()
+    }
     return config
   },
   error => {
+    // console.log(error)
     return Promise.reject(error)
   }
 )

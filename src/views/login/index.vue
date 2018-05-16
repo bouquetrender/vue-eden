@@ -17,10 +17,10 @@
               <el-input placeholder="please enter username" v-model="ruleForm.username"></el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input placeholder="please enter password" v-model="ruleForm.password"></el-input>
+              <el-input type="password" placeholder="please enter password" v-model="ruleForm.password"></el-input>
             </el-form-item>
             <el-form-item class="btn">
-              <el-button type="primary" @click="handleLogin('ruleForm')">Login</el-button>
+              <el-button :loading="loading" type="primary" @click="handleLogin('ruleForm')">Login</el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -48,8 +48,8 @@ const useRegexp = {
 }
 
 const validobj = {
-  username: [{ valid: 'exist', error: 'Username does not exist !' }],
-  password: [{ valid: 'exist', error: 'Password does not exist !' }]
+  username: [{ ruleName: 'exist', error: 'please input username !' }],
+  password: [{ ruleName: 'exist', error: 'please input password !' }]
 }
 
 export default {
@@ -57,14 +57,14 @@ export default {
   data() {
     const validfn = (rule, value, callback) => {
       const _validobj = validobj[rule.field.replace(/^\S+(?=\.)\./g, '')]
-      const _typeof = (val) => (
-        Object.prototype.toString.call(val)
+      const _typeof = val =>
+        Object.prototype.toString
+          .call(val)
           .replace(/^\S+\s/, '')
           .replace(/]$/, '')
           .toLocaleLowerCase()
-      )
       for (let i = 0; i < _validobj.length; i++) {
-        let _rule = rules[_validobj[i].ruleName]
+        let _rule = useRegexp[_validobj[i].ruleName]
         if (_typeof(_rule) === 'regexp') {
           if (!_rule.test(value)) {
             return callback(new Error(_validobj[i].error))
@@ -80,22 +80,46 @@ export default {
 
     return {
       ruleForm: {
-        username: '',
+        username: 'admin',
         password: ''
       },
       rules: {
-        username: [{ validator: validfn, trigger: 'blur' }],
-        password: [{ validator: validfn, trigger: 'blur' }]
+        username: [{ validator: validfn, trigger: 'blur', required: true }],
+        password: [{ validator: validfn, trigger: 'blur', required: true }]
       },
-      remember: true
+      remember: true,
+      loading: false
     }
   },
   methods: {
     handleLogin(formName) {
+      this.loading = true
       this.$refs[formName].validate(valid => {
         if (valid) {
-          // 通过效验
+          let { username, password } = this.ruleForm
+          this.$store
+            .dispatch('loginbyUser', {
+              username: username.trim(),
+              password: password
+            })
+            .then(response => {
+              this.loading = false
+              if (response.data) {
+                this.$router.push({ path: '/' })
+              } else {
+                this.$message({
+                  message: response.message,
+                  type: 'error',
+                  duration: 10000,
+                  showClose: true
+                })
+              }
+            })
+            .catch(() => {
+              this.loading = false
+            })
         } else {
+          this.loading = false
           this.$message.error('Login form does not pass !')
         }
       })
@@ -106,7 +130,10 @@ export default {
 
 <style lang="stylus">
 .login-form
+  .el-form-item__content
+    line-height 40px
   .el-input__inner
+    padding-top: 2px;
     height 40px
     line-height 40px
 

@@ -18,6 +18,8 @@ router.beforeEach((to, from, next) => {
     if (to.path === '/login') {
       next({ path: '/' }) // 如果登录过后访问登录页面则跳回主页
       nprogress.done()
+    } else {
+      next()
     }
   } else {
     if (whiteList.indexOf(to.path) !== -1) {

@@ -36,22 +36,6 @@ export const constantRouterMap = [
     hidden: true
   },
   {
-    path: '/documentation',
-    component: Layout,
-    redirect: '/documentation/index',
-    children: [
-      {
-        path: 'index',
-        component: _import('documentation/index'),
-        meta: {
-          title: 'documentation',
-          icon: 'documentation',
-          noCache: true
-        }
-      }
-    ]
-  },
-  {
     path: '',
     component: Layout,
     redirect: 'dashboard',
@@ -62,6 +46,22 @@ export const constantRouterMap = [
         meta: {
           title: 'dashboard',
           icon: 'dashboard',
+          noCache: true
+        }
+      }
+    ]
+  },
+  {
+    path: '/documentation',
+    component: Layout,
+    redirect: '/documentation/index',
+    children: [
+      {
+        path: 'index',
+        component: _import('documentation/index'),
+        meta: {
+          title: 'documentation',
+          icon: 'documentation',
           noCache: true
         }
       }
