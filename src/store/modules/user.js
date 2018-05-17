@@ -1,5 +1,6 @@
 import { loginbyUser, logout, getUserInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import Cookies from 'js-cookie'
 
 const user = {
   state: {
@@ -15,6 +16,7 @@ const user = {
             if (response.data) {
               commit('SET_TOKEN', response.data.token)
               setToken(response.data.token)
+              Cookies.set('username', username)
             }
             resolve(response)
           })

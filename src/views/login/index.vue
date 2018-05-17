@@ -14,29 +14,34 @@
         <div class="login-form">
           <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="login-ruleForm">
             <el-form-item prop="username">
-              <el-input placeholder="please enter username" v-model="ruleForm.username"></el-input>
+              <el-input :placeholder="$t('login.userplaceholder')" v-model="ruleForm.username"></el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input type="password" placeholder="please enter password" v-model="ruleForm.password"></el-input>
+              <el-input :placeholder="$t('login.pwdplaceholder')" type="password" v-model="ruleForm.password"></el-input>
             </el-form-item>
             <el-form-item class="btn">
-              <el-button :loading="loading" type="primary" @click="handleLogin('ruleForm')">Login</el-button>
+              <el-button :loading="loading" type="primary" @click="handleLogin('ruleForm')">{{$t('login.btn')}}</el-button>
             </el-form-item>
           </el-form>
         </div>
 
         <div class="login-footer">
           <el-col :span="12">
-            <el-checkbox v-model="remember" label="Remember" name="type"></el-checkbox>
+            <el-checkbox v-model="remember" name="type">{{$t('login.remember')}}</el-checkbox>
           </el-col>
           <el-col class="forgetpwd" :span="12">
-            <span>Forget Password</span>
+            <span>{{$t('login.forgetpwd')}}</span>
           </el-col>
         </div>
       </el-col>
 
       <el-col class="login-col" :span="14">
-        <div class="wallpaper"></div>
+        <div class="wallpaper">
+          <el-col class="radiowrap">
+            <el-radio @change="handleChangedLang" v-model="lang" label="en">{{$t('login.radioEN')}}</el-radio>
+            <el-radio @change="handleChangedLang" v-model="lang" label="zh">{{$t('login.radioZH')}}</el-radio>
+          </el-col>
+        </div>
       </el-col>
     </div>
   </div>
@@ -47,14 +52,15 @@ const useRegexp = {
   exist: /\S+/
 }
 
-const validobj = {
-  username: [{ ruleName: 'exist', error: 'please input username !' }],
-  password: [{ ruleName: 'exist', error: 'please input password !' }]
-}
-
 export default {
   name: 'login',
   data() {
+    const validobj = {
+      username: [
+        { ruleName: 'exist', error: this.$t('login.valid.userexist') }
+      ],
+      password: [{ ruleName: 'exist', error: this.$t('login.valid.pwdexist') }]
+    }
     const validfn = (rule, value, callback) => {
       const _validobj = validobj[rule.field.replace(/^\S+(?=\.)\./g, '')]
       const _typeof = val =>
@@ -79,6 +85,7 @@ export default {
     }
 
     return {
+      lang: this.$store.state.app.language,
       ruleForm: {
         username: 'admin',
         password: ''
@@ -92,6 +99,15 @@ export default {
     }
   },
   methods: {
+    handleChangedLang(lang) {
+      this.$i18n.locale = lang
+      this.$store.dispatch('setLanguage', lang)
+      const message = this.$t('app.switchlang')
+      this.$message({
+        message,
+        type: 'success'
+      })
+    },
     handleLogin(formName) {
       this.loading = true
       this.$refs[formName].validate(valid => {
@@ -157,11 +173,13 @@ export default {
   width 100%
 
 .login-wrap
+  overflow hidden
   width 900px
   height 400px
   background white
   border-radius 4px
   transform translateY(-25px)
+  box-shadow 0 1px 3px 0 rgba(0,0,0,0.12), 0 0 3px 0 rgba(0,0,0,0.04)
 
   .logo
     padding-top 26px
@@ -178,16 +196,16 @@ export default {
         content '['
         opacity 0
         margin-right 10px
-
         transform translateX(-10px)
         transition transform .2s, opacity .2s
+
       a:after
         content ']'
         opacity 0
         margin-left 10px
-
         transform translateX(10px)
         transition transform .2s, opacity .2s
+
       a:hover:before
       a:hover:after
         opacity 1
@@ -211,8 +229,16 @@ export default {
         color #606266
 
   .wallpaper
+    .el-radio+.el-radio
+      margin-left: 15px !important
     width 100%
     height 100%
     background url('../../assets/images/loginwallpaper.jpg')
     background-size cover
+    position relative
+    .radiowrap
+      position absolute
+      top 25px
+      left 30px
+      width auto
 </style>
