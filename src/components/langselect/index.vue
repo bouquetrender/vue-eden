@@ -36,7 +36,6 @@ export default {
 
 <style lang="stylus" scoped>
 .el-langselect
-  height 60px
   padding 0 20px
   &__box
     cursor pointer

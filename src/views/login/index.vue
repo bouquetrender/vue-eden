@@ -1,59 +1,102 @@
 <template>
   <div class="login-page">
+    <langselect class="lang" />
+    <el-tooltip class="svg-github" effect="dark" content="Star me" placement="bottom">
+      <a href="https://github.com/Sakuyakun/vue-eden"><icon name="github" :scale="2.5"></icon></a>
+    </el-tooltip>
+    
     <div class="login-wrap">
-      <el-col class="login-col" :span="10">
-        <div class="logo">
-          <icon name="tree" :scale="8"></icon>
-          <div class="title">
+      <el-col :class="translateLeft" :span="10">
+
+        <div v-if="notforget">
+          <div class="logo">
+            <icon name="tree" :scale="8"></icon>
+            <div class="title">
+              <a>
+                <span>VUE</span><span class="subtitle">EDEN</span>
+              </a>
+            </div>
+          </div>
+        
+          <div class="login-form">
+            <el-form :model="ruleForm" :rules="rules" ref="ruleForm">
+              <el-form-item prop="username">
+                <el-input :placeholder="$t('login.userplaceholder')" v-model="ruleForm.username"></el-input>
+              </el-form-item>
+              <el-form-item prop="password">
+                <el-input :placeholder="$t('login.pwdplaceholder')" type="password" v-model="ruleForm.password"></el-input>
+              </el-form-item>
+              <el-form-item class="btn">
+                <el-button :loading="loading" type="primary" @click="handleLogin('ruleForm')">{{$t('login.btn')}}</el-button>
+              </el-form-item>
+            </el-form>
+          </div>
+
+          <div class="login-footer">
+            <el-col :span="12">
+              <el-checkbox v-model="remember" name="type">{{$t('login.remember')}}</el-checkbox>
+            </el-col>
+            <el-col class="forgetpwd" :span="12">
+              <span @click="wrapSwitch(false)">{{$t('login.forgetpwd')}}</span>
+            </el-col>
+          </div>
+        </div>
+
+        <div v-else>
+          <div class="title forgetwrap-title">
             <a>
               <span>VUE</span><span class="subtitle">EDEN</span>
             </a>
           </div>
-        </div>
-        
-        <div class="login-form">
-          <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="login-ruleForm">
-            <el-form-item prop="username">
-              <el-input :placeholder="$t('login.userplaceholder')" v-model="ruleForm.username"></el-input>
-            </el-form-item>
-            <el-form-item prop="password">
-              <el-input :placeholder="$t('login.pwdplaceholder')" type="password" v-model="ruleForm.password"></el-input>
-            </el-form-item>
-            <el-form-item class="btn">
-              <el-button :loading="loading" type="primary" @click="handleLogin('ruleForm')">{{$t('login.btn')}}</el-button>
-            </el-form-item>
-          </el-form>
+          <div class="forget-form">
+            <el-form :model="forgetForm" ref="forgetRuleForm">
+              <el-form-item>
+                <el-input :placeholder="$t('login.forget_email')" v-model="forgetForm.email"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-input :placeholder="$t('login.forget_code')" v-model="forgetForm.code"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-input :placeholder="$t('login.forget_passwrd')" type="password" v-model="forgetForm.newPassword"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-input :placeholder="$t('login.confirm_passwrd')" type="password" v-model="forgetForm.confirmPassword"></el-input>
+              </el-form-item>
+              <el-form-item class="btn">
+                <el-row :gutter="20">
+                  <el-col :span="12">
+                    <el-button type="primary">{{$t('login.forget_btn')}}</el-button>
+                  </el-col>
+                  <el-col :span="12">
+                    <el-button @click="wrapSwitch(true)" type="primary">{{$t('login.forget_back')}}</el-button>
+                  </el-col>
+                </el-row>
+              </el-form-item>
+            </el-form>
+          </div>
         </div>
 
-        <div class="login-footer">
-          <el-col :span="12">
-            <el-checkbox v-model="remember" name="type">{{$t('login.remember')}}</el-checkbox>
-          </el-col>
-          <el-col class="forgetpwd" :span="12">
-            <span>{{$t('login.forgetpwd')}}</span>
-          </el-col>
-        </div>
       </el-col>
 
-      <el-col class="login-col" :span="14">
-        <div class="wallpaper">
-          <el-col class="radiowrap">
-            <el-radio @change="handleChangedLang" v-model="lang" label="en">{{$t('login.radioEN')}}</el-radio>
-            <el-radio @change="handleChangedLang" v-model="lang" label="zh">{{$t('login.radioZH')}}</el-radio>
-          </el-col>
-        </div>
+      <el-col :class="translateRight" :span="14">
+        <div class="wallpaper"></div>
       </el-col>
     </div>
   </div>
 </template>
 
 <script>
+import langselect from '@/components/langselect'
+
 const useRegexp = {
   exist: /\S+/
 }
 
 export default {
   name: 'login',
+  components: {
+    langselect
+  },
   data() {
     const validobj = {
       username: [
@@ -61,14 +104,16 @@ export default {
       ],
       password: [{ ruleName: 'exist', error: this.$t('login.valid.pwdexist') }]
     }
+
+    const _typeof = val =>
+      Object.prototype.toString
+        .call(val)
+        .replace(/^\S+\s/, '')
+        .replace(/]$/, '')
+        .toLocaleLowerCase()
+
     const validfn = (rule, value, callback) => {
       const _validobj = validobj[rule.field.replace(/^\S+(?=\.)\./g, '')]
-      const _typeof = val =>
-        Object.prototype.toString
-          .call(val)
-          .replace(/^\S+\s/, '')
-          .replace(/]$/, '')
-          .toLocaleLowerCase()
       for (let i = 0; i < _validobj.length; i++) {
         let _rule = useRegexp[_validobj[i].ruleName]
         if (_typeof(_rule) === 'regexp') {
@@ -95,18 +140,40 @@ export default {
         password: [{ validator: validfn, trigger: 'blur', required: true }]
       },
       remember: true,
-      loading: false
+      loading: false,
+      switchLeft: false,
+      switchRight: false,
+      notforget: true,
+      forgetForm: {
+        email: '',
+        newPassword: '',
+        confirmPassword: ''
+      }
+    }
+  },
+  computed: {
+    translateLeft() {
+      return {
+        'translate-left': true,
+        'login-col': true,
+        'switch-left': this.switchLeft
+      }
+    },
+    translateRight() {
+      return {
+        'translate-right': true,
+        'login-col': true,
+        'switch-right': this.switchLeft
+      }
     }
   },
   methods: {
-    handleChangedLang(lang) {
-      this.$i18n.locale = lang
-      this.$store.dispatch('setLanguage', lang)
-      const message = this.$t('app.switchlang')
-      this.$message({
-        message,
-        type: 'success'
-      })
+    wrapSwitch(state) {
+      this.switchLeft = !this.switchLeft
+      this.switchRight = !this.switchRight
+      setTimeout(() => {
+        this.notforget = state
+      }, 300)
     },
     handleLogin(formName) {
       this.loading = true
@@ -145,6 +212,7 @@ export default {
 </script>
 
 <style lang="stylus">
+.forget-form,
 .login-form
   .el-form-item__content
     line-height 40px
@@ -171,7 +239,24 @@ export default {
   position absolute
   height 100%
   width 100%
-
+  .lang
+    position absolute
+    right 59px
+    top 24px
+  .svg-github
+    position absolute
+    right 29px
+    top 25px
+  .translate-left //525
+  .translate-right // -375
+    will-change auto
+    transform translateX(0px)
+    transition transform .6s ease-in-out
+  .switch-left
+    transform translateX(525px)
+  .switch-right
+    transform translateX(-375px)
+  
 .login-wrap
   overflow hidden
   width 900px
@@ -184,35 +269,44 @@ export default {
   .logo
     padding-top 26px
     text-align center
-    .title
-      font-weight bold
-      color main-color
-      padding-top 8px
-      font-size 22px
 
-      a
-        cursor cell
-      a:before
-        content '['
-        opacity 0
-        margin-right 10px
-        transform translateX(-10px)
-        transition transform .2s, opacity .2s
+  .title
+    font-weight bold
+    color main-color
+    padding-top 8px
+    font-size 22px
 
-      a:after
-        content ']'
-        opacity 0
-        margin-left 10px
-        transform translateX(10px)
-        transition transform .2s, opacity .2s
+    a
+      cursor cell
+    a:before
+      content '['
+      opacity 0
+      margin-right 10px
+      transform translateX(-10px)
+      transition transform .2s, opacity .2s
 
-      a:hover:before
-      a:hover:after
-        opacity 1
-        transform translateX(0)
+    a:after
+      content ']'
+      opacity 0
+      margin-left 10px
+      transform translateX(10px)
+      transition transform .2s, opacity .2s
+
+    a:hover:before
+    a:hover:after
+      opacity 1
+      transform translateX(0)
 
     .subtitle
       color sub-color
+
+  .forgetwrap-title
+    padding-top 30px
+    padding-left 15px
+
+  .forget-form
+    padding 20px 30px 30px
+    padding-bottom 0
 
   .login-form
     padding 30px
@@ -229,16 +323,9 @@ export default {
         color #606266
 
   .wallpaper
-    .el-radio+.el-radio
-      margin-left: 15px !important
     width 100%
     height 100%
     background url('../../assets/images/loginwallpaper.jpg')
     background-size cover
     position relative
-    .radiowrap
-      position absolute
-      top 25px
-      left 30px
-      width auto
 </style>

@@ -27,7 +27,7 @@
     </div>
 
     <div class="right-area">
-      <lang-select />
+      <lang-select class="lang" />
       <notice />
       <fullscreen class="fullscreen" />
       <infodrop />
@@ -128,6 +128,8 @@ right-area-width = 250px
     .fullscreen
       height: 100%
       padding: 0 22px
+    .lang
+      height 60px
 
   &__title
   &__icon
