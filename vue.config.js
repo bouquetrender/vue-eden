@@ -1,5 +1,6 @@
 // https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/config.md
 const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -11,8 +12,14 @@ module.exports = {
   lintOnSave: true,
 
   // 调整内部的 webpack 配置
-  // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/webpack.md
-  configureWebpack: {},
+  // ttps://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/webpack.md
+  configureWebpack: config => {
+    if (process.env.NODE_ENV === 'production') {
+      // 为生产环境修改配置...
+    } else {
+      // 为开发环境修改配置...
+    }
+  },
   chainWebpack: config => {
     // https://github.com/mozilla-neutrino/webpack-chain#getting-started
     config.resolve.alias
@@ -29,17 +36,17 @@ module.exports = {
       .add('.js')
       .add('.vue')
       .add('.styl')
+
+    config.when(process.env.NODE_ENV === 'production', config =>
+      config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin)
+    )
   },
 
   productionSourceMap: true,
   // CSS 相关选项
   css: {
     // 是否开启 CSS source map？
-    sourceMap: false,
-
-    // 为预处理器的 loader 传递自定义选项。比如传递给
-    // sass-loader 时，使用 `{ sass: { ... } }`。
-    loaderOptions: {}
+    sourceMap: false
   },
 
   devServer: {
@@ -48,7 +55,6 @@ module.exports = {
     port: 8863,
     https: false,
     hotOnly: false,
-    // 查阅 https://github.com/vuejs/vue-doc-zh-cn/vue-cli/cli-service.md#配置代理
     proxy: null // string | Object
   }
 }
