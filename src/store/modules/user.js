@@ -14,7 +14,7 @@ const user = {
         loginbyUser(username, password)
           .then(response => {
             if (response.data) {
-              commit('SET_TOKEN', response.data.token)
+              // commit('SET_TOKEN', response.data.token)
               setToken(response.data.token)
               Cookies.set('username', username)
             }
