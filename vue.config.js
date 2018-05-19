@@ -1,6 +1,7 @@
 // https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/config.md
 const path = require('path')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
 
 function resolve(dir) {
   return path.join(__dirname, dir)

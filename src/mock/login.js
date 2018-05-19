@@ -1,3 +1,5 @@
+import queryString from 'query-string'
+
 const userMap = {
   admin: {
     roles: ['admin'],
@@ -31,6 +33,24 @@ export default {
         data: null,
         message: 'Login failed, User does not exist'
       }
+    }
+    return response
+  },
+  logout: () => {
+    return {
+      code: 200,
+      data: {
+        state: 1
+      },
+      message: 'Logout success'
+    }
+  },
+  info: config => {
+    let params = queryString.parse(config.url.replace(/^\S+(?=\?)/, ''))
+    let response = {
+      code: 200,
+      data: userMap[params.username],
+      message: 'Login success, Welcome'
     }
     return response
   }

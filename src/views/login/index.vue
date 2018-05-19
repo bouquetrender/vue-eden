@@ -177,30 +177,28 @@ export default {
     },
     handleLogin(formName) {
       this.loading = true
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate(async valid => {
         if (valid) {
           let { username, password } = this.ruleForm
-          this.$store
-            .dispatch('loginbyUser', {
+          try {
+            const response = await this.$store.dispatch('loginbyUser', {
               username: username.trim(),
               password: password
             })
-            .then(response => {
-              this.loading = false
-              if (response.data) {
-                this.$router.push({ path: '/' })
-              } else {
-                this.$message({
-                  message: response.message,
-                  type: 'error',
-                  duration: 10000,
-                  showClose: true
-                })
-              }
-            })
-            .catch(() => {
-              this.loading = false
-            })
+            this.loading = false
+            if (response.data) {
+              this.$router.push({ path: '/' })
+            } else {
+              this.$message({
+                message: response.message,
+                type: 'error',
+                duration: 10000,
+                showClose: true
+              })
+            }
+          } catch (error) {
+            throw new Error(error)
+          }
         } else {
           this.loading = false
           this.$message.error('Login form does not pass !')

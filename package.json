@@ -24,6 +24,7 @@
     "mockjs": "^1.0.1-beta3",
     "normalize.css": "^8.0.0",
     "nprogress": "^0.2.0",
+    "query-string": "^6.1.0",
     "screenfull": "^3.3.2",
     "vue": "^2.5.16",
     "vue-i18n": "^7.6.0",
