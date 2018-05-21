@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-const _import = require('@/utils/import')
+import _import from '@/utils/import'
 const Layout = _import('layout/Layout')
 
 Vue.use(VueRouter)
