@@ -1,7 +1,6 @@
 // https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/config.md
 const path = require('path')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -38,9 +37,9 @@ module.exports = {
       .add('.vue')
       .add('.styl')
 
-    config.when(process.env.NODE_ENV === 'production', config =>
-      config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin)
-    )
+    //config.when(process.env.NODE_ENV === 'production', config =>
+    //  config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin)
+    //)
   },
 
   productionSourceMap: true,
