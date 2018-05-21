@@ -1,6 +1,17 @@
-## Introduction
+<p align="center">
+  <img width="220" src="https://i.loli.net/2018/05/21/5b02ebd9efd46.png">
+</p>
 
-`vue-eden` is a extremely beautiful admin management system template uses `vue-cli3` and `element-ui`. 
+<p align="center">
+  <a href="https://github.com/Sakuyakun/vue-eden/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/Sakuyakun/vue-eden.svg?style=flat-square" alt="license">
+  </a>
+  <a href="https://travis-ci.org/Sakuyakun/vue-eden">
+    <img src="https://img.shields.io/travis/Sakuyakun/vue-eden.svg?style=flat-square" alt="GitHub release">
+  </a>
+</p>
+
+`vue-eden` is a extremely beautiful admin management system template uses `vue` and `element-ui`.
 
 ![id](https://i.loli.net/2018/05/19/5aff9f7bdb36f.png)
 
