@@ -13,8 +13,8 @@ export default {
     radioZH: 'Chinese',
     forgetpwd: 'Forget Password',
     remember: 'Remember',
-    userplaceholder: 'please enter username',
-    pwdplaceholder: 'please enter password',
+    userplaceholder: 'please enter lovely username',
+    pwdplaceholder: 'please enter lovely password',
     valid: {
       userexist: 'please input username!',
       pwdexist: 'please input password!'
@@ -22,7 +22,7 @@ export default {
     forget_email: 'please enter email',
     forget_code: 'please enter code',
     forget_passwrd: 'please enter new password',
-    confirm_passwrd: 'verify new password',
+    confirm_passwrd: 'confirm new password',
     forget_btn: 'Confirm',
     forget_back: 'Back'
   },

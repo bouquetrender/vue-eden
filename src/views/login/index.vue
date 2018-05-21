@@ -65,10 +65,10 @@
               <el-form-item class="btn">
                 <el-row :gutter="20">
                   <el-col :span="12">
-                    <el-button type="primary">{{$t('login.forget_btn')}}</el-button>
+                    <el-button @click="wrapSwitch(true)" type="primary">{{$t('login.forget_back')}}</el-button>
                   </el-col>
                   <el-col :span="12">
-                    <el-button @click="wrapSwitch(true)" type="primary">{{$t('login.forget_back')}}</el-button>
+                    <el-button type="primary">{{$t('login.forget_btn')}}</el-button>
                   </el-col>
                 </el-row>
               </el-form-item>
@@ -173,6 +173,8 @@ export default {
       this.switchRight = !this.switchRight
       setTimeout(() => {
         this.notforget = state
+        this.$refs['ruleForm'].resetFields()
+        // this.$refs['forgetRuleForm'].resetFields()
       }, 300)
     },
     handleLogin(formName) {
