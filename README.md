@@ -11,11 +11,10 @@
   </a>
 </p>
 
-`vue-eden` is a extremely beautiful admin management system template uses `vue` and `element-ui`.
+`vue-eden` is a extremely beautiful admin management system template uses `vue` and `element-ui`. preview comming soon.
 
 ![id](https://i.loli.net/2018/05/19/5aff9f7bdb36f.png)
 
-preview comming soon ...
 
 ## Features
 
