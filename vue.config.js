@@ -7,7 +7,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  baseUrl: '/', // gh-pages
+  baseUrl: '/vue-eden/', // gh-pages
   outputDir: 'dist',
   lintOnSave: true,
 
