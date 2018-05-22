@@ -11,12 +11,11 @@
   </a>
 </p>
 
-`vue-eden` is a extremely beautiful admin management system template uses `vue` and `element-ui`. preview comming soon.
+vue-eden 是一个美观的后台管理系统，简称 eden（伊甸园），主要使用了 vue 框架与 element-ui 组件库。目前正在开发中，进度可在 projects 查看。预览页面即将完成，说明文档在计划内。
 
 ![id](https://i.loli.net/2018/05/19/5aff9f7bdb36f.png)
 
-
-## Features
+## 特点
 
 - [x] i18n
 - [ ] Base Layout
@@ -26,13 +25,45 @@
 - [ ] Mock Data
 - [ ] Markdown editor / preview
 - [ ] Screenshots
-- [ ] Eden Documentation
+- [ ] Documentation
 
-and more ...
+还有更多 ...
 
-## Getting started
+## 结构
 
-serve script will automatically open http://localhost:8863
+```
+.
+├── LICENSE
+├── README.md
+├── docs
+│   └── docs.md
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   └── index.html
+├── src
+│   ├── App.vue         
+│   ├── api            请求接口
+│   ├── assets         静态资源
+│   ├── components     组件
+│   ├── lang           国际化
+│   ├── main.js        入口文件
+│   ├── mock           MOCK 数据
+│   ├── router         路由
+│   ├── store          Store
+│   ├── svg            svg 存放目录
+│   ├── theme          主题色 css
+│   ├── utils          辅助工具方法
+│   └── views          页面
+├── template
+│   └── index.vue
+└── vue.config.js      vue-cli3 配置文件
+```
+
+## 启动
+
+执行 serve 脚本将自动启动 http://localhost:8863
 
 ```
 # clone the project
@@ -46,4 +77,7 @@ npm run serve
 
 # build for production environment
 npm run build
+
+# lint
+npm run lint
 ```
