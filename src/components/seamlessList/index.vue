@@ -29,7 +29,11 @@ export default {
     },
     waitTime: {
       type: Number,
-      default: 2000
+      default: 3000
+    },
+    hoverStop: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -40,7 +44,8 @@ export default {
       return {
         singleHeight: this.singleHeight,
         limitMoveNum: this.limitMoveNum,
-        waitTime: this.waitTime
+        waitTime: this.waitTime,
+        hoverStop: this.hoverStop
       }
     }
   }

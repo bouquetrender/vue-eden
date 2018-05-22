@@ -6,8 +6,8 @@
     :default-active="$route.path"
     :collapse="isCollapse"
     background-color="#556d84"
-    text-color="#bfcbd9"
-    active-text-color="#409EFF"
+    text-color="#fff"
+    active-text-color="#41B883"
   >
     <sidebar-item :routes="permission_routers"></sidebar-item>
   </el-menu>

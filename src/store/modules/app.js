@@ -36,6 +36,9 @@ const app = {
   },
   actions: {
     toggleSideBar({ commit }) {
+      let state = ''
+      storage.get('sliderState') === 'full' ? (state = 'collapse') : (state = 'full')
+      commit(types.SET_SLIDERSTATE, state)
       commit(types.TOGGLE_SIDEBAR)
     },
     setLanguage({ commit }, language) {

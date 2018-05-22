@@ -18,11 +18,11 @@ vue-eden 是一个美观的后台管理系统，简称 eden（伊甸园），主
 ## 特点
 
 - [x] i18n
+- [x] Permission authentication
+- [x] Mock Data
 - [ ] Base Layout
 - [ ] sidebar / breadcrumb / tags-view
 - [ ] Login / Logout / Lock
-- [ ] Permission authentication
-- [ ] Mock Data
 - [ ] Markdown editor / preview
 - [ ] Screenshots
 - [ ] Documentation

@@ -1,11 +1,12 @@
 const getters = {
   /* app */
   sidebar: state => state.app.sidebar,
-  getSliderState: state => {
-    return state.app.sidebar.sliderState === 'full' ? '240px' : '50px'
+  getSliderStateWidth: state => {
+    return state.app.sidebar.sliderState === 'full' ? '240px' : '60px'
   },
   /* permission */
   permission_routers: state => state.permission.routers,
+  addRouters: state => state.permission.addRouters,
   /* user */
   roles: state => state.user.roles
 }

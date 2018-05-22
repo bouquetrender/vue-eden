@@ -8,12 +8,12 @@ const userMap = {
     avatar: '',
     name: 'Super Admin'
   },
-  editor: {
-    roles: ['editor'],
-    token: 'editor',
-    introduction: 'i am editor',
+  sakuya: {
+    roles: ['sakuya'],
+    token: 'sakuya',
+    introduction: 'i am sakuya',
     avatar: '',
-    name: 'Normal Editor'
+    name: 'Miyashita Sakuya'
   }
 }
 

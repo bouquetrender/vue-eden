@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     asideWidth() {
-      return this.$store.getters.getSliderState
+      return this.$store.getters.getSliderStateWidth
     }
   }
 }

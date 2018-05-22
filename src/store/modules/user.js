@@ -34,7 +34,7 @@ const user = {
         try {
           const response = await loginbyUser(username, password)
           if (response.data) {
-            commit('SET_TOKEN', response.data.token)
+            commit(types.SET_TOKEN, response.data.token)
             setToken(response.data.token)
             Cookies.set('user', username)
           }
@@ -48,8 +48,8 @@ const user = {
       return new Promise(async (resolve, reject) => {
         try {
           await logout(state.token)
-          commit('SET_TOKEN', '')
-          commit('SET_ROLES', [])
+          commit(types.SET_ROLES, '')
+          commit(types.SET_ROLES, [])
           removeToken()
           resolve()
         } catch (error) {
@@ -59,7 +59,7 @@ const user = {
     },
     felogout({ commit, state }) {
       return new Promise(resolve => {
-        commit('SET_TOKEN', '')
+        commit(types.SET_TOKEN, '')
         removeToken()
         resolve()
       })
@@ -70,10 +70,10 @@ const user = {
           const response = await getUserInfo(Cookies.get('user'))
           const { roles, name, avatar, introduction } = response.data
 
-          commit('SET_ROLES', roles)
-          commit('SET_NAME', name)
-          commit('SET_AVATAR', avatar)
-          commit('SET_INTRODUCTION', introduction)
+          commit(types.SET_ROLES, roles)
+          commit(types.SET_NAME, name)
+          commit(types.SET_AVATAR, avatar)
+          commit(types.SET_INTRODUCTION, introduction)
 
           resolve(response)
         } catch (error) {

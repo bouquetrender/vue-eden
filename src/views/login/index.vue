@@ -87,6 +87,7 @@
 
 <script>
 import langselect from '@/components/langselect'
+import storage from '@/utils/storage'
 
 const useRegexp = {
   exist: /\S+/
@@ -132,7 +133,7 @@ export default {
     return {
       lang: this.$store.state.app.language,
       ruleForm: {
-        username: 'admin',
+        username: storage.get('loginUser') || '',
         password: ''
       },
       rules: {
@@ -181,8 +182,11 @@ export default {
       this.loading = true
       this.$refs[formName].validate(async valid => {
         if (valid) {
-          let { username, password } = this.ruleForm
           try {
+            let { username, password } = this.ruleForm
+            this.remember ? 
+              (storage.set('loginUser', username)) :
+              (storage.remove('loginUser', username))
             const response = await this.$store.dispatch('loginbyUser', {
               username: username.trim(),
               password: password

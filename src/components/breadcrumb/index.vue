@@ -1,6 +1,6 @@
 <template>
   <el-breadcrumb class="breadcrumb" separator="/">
-    <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+    <el-breadcrumb-item :to="{ path: '/' }">Dashboard</el-breadcrumb-item>
   </el-breadcrumb>
 </template>
 
