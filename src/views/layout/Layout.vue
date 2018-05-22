@@ -57,5 +57,7 @@ export default {
     color #fff
 
   .el-main
-    padding: 0
+    padding 0
+    height 100%
+    overflow auto
 </style>

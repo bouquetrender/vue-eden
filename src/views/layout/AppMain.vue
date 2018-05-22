@@ -1,5 +1,5 @@
 <template>
-  <section class="main" style="min-height: 100%">
+  <section class="main">
     <transition name="fade" mode="out-in">
       <keep-alive :include="cachedViews">
         <router-view></router-view>
@@ -19,7 +19,15 @@ export default {
 }
 </script>
 
+<style scoped>
+.main {
+  height: calc(100% - 40px)
+}
+</style>
+
 <style lang="stylus" scoped>
 .main
   padding 20px
+  overflow auto
+  box-sizing border-box
 </style>
