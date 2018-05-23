@@ -5,7 +5,15 @@
 
 <script>
 export default {
-  name: 'tagsviews'
+  name: 'tagsviews',
+  methods: {
+    getTitle(title) {
+      if (this.$te(`route.${title}`)) {
+        return this.$t(`route.${title}`)
+      }
+      return title
+    }
+  }
 }
 </script>
 

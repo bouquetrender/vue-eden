@@ -55,7 +55,7 @@ export default {
 <style lang="stylus">
 .seamless-warp
   display inline-block
-  padding-left 10px
+  padding-left 35px
   min-width 300px
   font-size 14px
   height 60px
@@ -65,6 +65,7 @@ export default {
     transition color .4s
     height 60px
     width 100%
+    color #39986d
     &:hover
       color #39986d
   &__date

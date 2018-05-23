@@ -25,7 +25,10 @@ export default {
   computed: {
     ...mapGetters(['sidebar', 'permission_routers']),
     isCollapse() {
-      return !this.sidebar.opened
+      if (this.sidebar.sliderState === 'full') {
+        return false
+      }
+      return true
     }
   }
 }

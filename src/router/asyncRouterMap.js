@@ -32,7 +32,7 @@ export const asyncRouterMap = [
       }
     ]
   },
-  // 权限演示
+  // 权限页面 只有 admin 用户才可访问
   {
     path: '/permission',
     component: Layout,
@@ -67,6 +67,37 @@ export const asyncRouterMap = [
           icon: 'test'
         }
       }
+    ]
+  },
+  // 组件
+  {
+    path: '/components',
+    component: Layout,
+    redirect: 'noredirect',
+    name: 'components',
+    meta: {
+      title: 'components',
+      icon: 'test'
+    },
+    children: [
+      { 
+        path: 'page1', 
+        component: _import('components/page1'), 
+        name: 'page1', 
+        meta: { title: 'page1' }
+      },
+      { 
+        path: 'page2', 
+        component: _import('components/page2'), 
+        name: 'page2', 
+        meta: { title: 'page2' }
+      },
+      { 
+        path: 'page3', 
+        component: _import('components/page3'), 
+        name: 'page3', 
+        meta: { title: 'page3' }
+      },
     ]
   }
 ]

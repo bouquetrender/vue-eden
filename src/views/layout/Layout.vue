@@ -50,6 +50,7 @@ export default {
     line-height 60px
     background white
     box-sizing border-box
+    overflow hidden
 
   .el-aside
     transition width .4s

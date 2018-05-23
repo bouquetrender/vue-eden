@@ -42,6 +42,7 @@ export const constantRouterMap = [
     children: [
       {
         path: 'dashboard',
+        name: 'dashboard',
         component: _import('home/index'),
         meta: {
           title: 'dashboard',
@@ -57,6 +58,7 @@ export const constantRouterMap = [
     redirect: '/documentation/index',
     children: [
       {
+        name: 'documentation',
         path: 'index',
         component: _import('documentation/index'),
         meta: {

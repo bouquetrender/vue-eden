@@ -1,7 +1,14 @@
 export default {
   route: {
     dashboard: 'Dashboard',
-    documentation: 'Documentation'
+    documentation: 'Documentation',
+    widget: 'Widget',
+    permission: 'Permission',
+    datatable: 'Datatable',
+    components: 'Components',
+    page1: 'page1',
+    page2: 'page2',
+    page3: 'page3'
   },
   app: {
     switchlang: 'Switch Language Success'

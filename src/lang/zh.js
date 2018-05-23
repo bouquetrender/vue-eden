@@ -1,7 +1,14 @@
 export default {
   route: {
     dashboard: '首页',
-    documentation: '文档'
+    documentation: '文档',
+    widget: '控件',
+    permission: '权限控制',
+    datatable: '表格',
+    components: '组件',
+    page1: '组件1',
+    page2: '组件2',
+    page3: '组件3'
   },
   app: {
     switchlang: '切换语言成功'

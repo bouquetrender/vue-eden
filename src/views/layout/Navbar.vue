@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-wrap">
-    <!-- <div class="left-area">
+    <div class="left-area">
       <icon class="el-header__icon" name="tree" :scale="4"></icon>
       <span class="el-header__title">
         VUE<span class="subtitle">EDEN</span>
@@ -8,7 +8,7 @@
           {{system_version}}
         </span>
       </span>
-    </div> -->
+    </div>
 
     <div class="middle-area">
       <div class="middle-area__cgwrap" @click="handleSwitchNavbar">
@@ -55,7 +55,9 @@ export default {
     'seamless-list': seamlessList
   },
   mounted() {
-    this.$store.dispatch('setSliderState', 'full')
+    if (!this.$store.getters.sidebar.sliderState) {
+      this.$store.dispatch('setSliderState', 'full')
+    }
   },
   data() {
     return {

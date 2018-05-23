@@ -4,7 +4,7 @@ import { getToken } from '@/utils/auth'
 import * as tools from './tools'
 
 const http = axios.create({
-  baseURL: process.env.BASE_API,
+  baseURL: '',
   timeout: 30000
 })
 
@@ -17,7 +17,6 @@ http.interceptors.request.use(
     return config
   },
   error => {
-    // console.log(error)
     return Promise.reject(error)
   }
 )
@@ -31,7 +30,7 @@ http.interceptors.response.use(
         type: 'error',
         message: res.error.message
       })
-      if (res.error.code === '') {
+      if (res.code === '') {
         // 接口自定义错误代码
         // 移除登陆token 显示接口错误消息
       }
@@ -41,25 +40,12 @@ http.interceptors.response.use(
     return Promise.resolve(res)
   },
   error => {
-    let errorAssign = obj =>
-      Object.assign({}, error, {
-        error: obj
-      })
-    let obj = {}
-
-    if (
-      error.code === 'ECONNABORTED' ||
-      error.response.status == 504 ||
-      error.response.status == 404
-    ) {
-      obj = errorAssign({ code: 'timeout', message: '请求超时' })
-    } else if (error.response.status == 403) {
-      obj = errorAssign({ code: 'crossError', message: '权限不足' })
-    } else {
-      obj = errorAssign({ code: error.response.status, message: '请求出错' })
-    }
-    // process.env.NODE_ENV !== 'production' && console.error(obj)
-    return Promise.reject(obj)
+    tools.notify({
+      type: 'error',
+      message: error.message,
+      duration: 5000
+    })
+    return Promise.reject(error)
   }
 )
 
