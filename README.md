@@ -66,9 +66,6 @@ vue-eden 是一个美观的后台管理系统，简称 eden（伊甸园），主
 执行 serve 脚本将自动启动 http://localhost:8863
 
 ```
-# clone the project
-git clone https://github.com/PanJiaChen/vue-element-admin.git
-
 # install dependency
 npm install
 
