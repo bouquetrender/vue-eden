@@ -108,6 +108,7 @@ right-area-width = 250px
     &__cgwrap
       float left
       height 100%
+      width 60px
       .category-icon
         cursor pointer
         height 100%
@@ -115,7 +116,7 @@ right-area-width = 250px
     &__msglist
       float left
       height 60px
-      width 85%
+      width 'calc(%s - %s)' % (100% 60px)
       color #808080
       font-weight 500
     &:after

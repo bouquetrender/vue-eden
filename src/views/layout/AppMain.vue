@@ -13,20 +13,16 @@ export default {
   name: 'AppMain',
   computed: {
     cachedViews() {
+      // TODO: cachedViews
       // return this.$store.state.tagsView.cachedViews
     }
   }
 }
 </script>
 
-<style scoped>
-.main {
-  height: calc(100% - 40px)
-}
-</style>
-
 <style lang="stylus" scoped>
 .main
+  width 'calc(%s - %s)' % (100% 40px)
   padding 20px
   overflow auto
   box-sizing border-box

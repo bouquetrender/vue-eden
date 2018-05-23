@@ -55,12 +55,12 @@ export default {
 <style lang="stylus">
 .seamless-warp
   display inline-block
-  padding-left 35px
   min-width 300px
   font-size 14px
   height 60px
   overflow hidden
   cursor pointer
+  float right
   &__content
     transition color .4s
     height 60px

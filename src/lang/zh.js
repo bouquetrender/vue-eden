@@ -1,4 +1,9 @@
 export default {
+  tags: {
+    handle: '标签操作',
+    closeall: '关闭所有',
+    closeother: '关闭其他'
+  },
   route: {
     dashboard: '首页',
     documentation: '文档',

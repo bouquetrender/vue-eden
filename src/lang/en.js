@@ -1,4 +1,9 @@
 export default {
+  tags: {
+    handle: 'TagsConf',
+    closeall: 'Close All',
+    closeother: 'Close Other'
+  },
   route: {
     dashboard: 'Dashboard',
     documentation: 'Documentation',
