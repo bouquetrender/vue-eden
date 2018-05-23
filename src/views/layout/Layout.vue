@@ -56,6 +56,7 @@ export default {
     transition width .4s
     background #556d84
     color #fff
+    overflow hidden
 
   .el-main
     padding 0

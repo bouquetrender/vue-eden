@@ -22,7 +22,7 @@ export default {
 
 <style lang="stylus" scoped>
 .main
-  width 'calc(%s - %s)' % (100% 40px)
+  height 'calc(%s - %s)' % (100% 40px)
   padding 20px
   overflow auto
   box-sizing border-box
