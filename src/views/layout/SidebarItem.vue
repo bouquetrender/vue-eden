@@ -15,7 +15,6 @@
             :scale="2">
           </icon>
           <span
-            slot="title"
             v-if="item.children[0].meta && item.children[0].meta.title">
             {{getTitle(item.children[0].meta.title)}}
           </span>
@@ -34,7 +33,7 @@
             :name="item.meta.icon"
             :scale="2">
           </icon>
-          <span v-if="item.meta && item.meta.title" slot="title">
+          <span v-if="item.meta && item.meta.title">
             {{getTitle(item.meta.title)}}
           </span>
         </template>
@@ -57,7 +56,7 @@
                 :scale="2">
               </icon>
               <span slot="title" v-if="child.meta && child.meta.title">
-                {{sidebar.sliderState === 'full' ? getTitle(child.meta.title) : ''}}
+                {{getTitle(child.meta.title)}}
               </span>
             </el-menu-item>
           </router-link>

@@ -52,6 +52,7 @@ export default {
     }
   },
   methods: {
+    closePage () {},
     linkTo (tag) {},
     handleCommand (command) {},
     handlescroll () {},
