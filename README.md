@@ -11,11 +11,9 @@
   </a>
 </p>
 
-vue-eden 是一个美观的后台管理系统，简称 eden（伊甸园），主要使用了 vue 框架与 element-ui 组件库。目前正在开发中，进度可在 projects 查看。预览页面即将完成，说明文档在计划内。
+vue-eden 是一个后台管理系统，简称 eden（伊甸园），主要使用了 vue 框架与 element-ui 组件库。目前正在开发中，预览页面即将完成。
 
 ![id](https://i.loli.net/2018/05/19/5aff9f7bdb36f.png)
-
-## 特点
 
 - [x] i18n
 - [x] Permission authentication
@@ -66,9 +64,6 @@ vue-eden 是一个美观的后台管理系统，简称 eden（伊甸园），主
 执行 serve 脚本将自动启动 http://localhost:8863
 
 ```
-# clone the project
-git clone https://github.com/PanJiaChen/vue-element-admin.git
-
 # install dependency
 npm install
 
