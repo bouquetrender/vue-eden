@@ -38,7 +38,7 @@
 <script>
 export default {
   name: 'tagsviews',
-  data () {
+  data() {
     return {
       tagsScrollLeft: 0,
       tags: [
@@ -52,10 +52,10 @@ export default {
     }
   },
   methods: {
-    closePage () {},
-    linkTo (tag) {},
-    handleCommand (command) {},
-    handlescroll () {},
+    closePage() {},
+    linkTo(tag) {},
+    handleCommand(command) {},
+    handlescroll() {},
     getTitle(title) {
       if (this.$te(`route.${title}`)) {
         return this.$t(`route.${title}`)

@@ -15,6 +15,8 @@ vue-eden 是一个后台管理系统，简称 eden（伊甸园），主要使用
 
 ![id](https://i.loli.net/2018/05/19/5aff9f7bdb36f.png)
 
+大概有以下这些功能
+
 - [x] i18n
 - [x] Permission authentication
 - [x] Mock Data

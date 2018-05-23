@@ -18,7 +18,7 @@ router.beforeEach(async (to, from, next) => {
   if (getToken()) {
     // 如果登录过后访问登录页面则跳回主页
     if (to.path === '/login') {
-      next({ path: '/' }) 
+      next({ path: '/' })
       nprogress.done()
     } else {
       // 请求用户信息，通过 roles 动态获取路由
@@ -44,7 +44,7 @@ router.beforeEach(async (to, from, next) => {
         if (hasPermission(store.getters.roles, to.meta.roles)) {
           next()
         } else {
-          next({ path: '/401', replace: true, query: { noGoBack: true }})
+          next({ path: '/401', replace: true, query: { noGoBack: true } })
         }
       }
     }

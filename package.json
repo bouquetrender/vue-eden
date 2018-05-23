@@ -49,6 +49,7 @@
     "@vue/cli-plugin-babel": "^3.0.0-beta.11",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.11",
     "@vue/cli-service": "^3.0.0-beta.11",
+    "@vue/cli-shared-utils": "^3.0.0-beta.11",
     "babel-plugin-component": "^1.1.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",

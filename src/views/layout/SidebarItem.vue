@@ -78,9 +78,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'sidebar'
-    ])
+    ...mapGetters(['sidebar'])
   },
   methods: {
     onlyOneShowingChildren(children) {

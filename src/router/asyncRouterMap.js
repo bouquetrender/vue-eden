@@ -80,24 +80,24 @@ export const asyncRouterMap = [
       icon: 'test'
     },
     children: [
-      { 
-        path: 'page1', 
-        component: _import('components/page1'), 
-        name: 'page1', 
+      {
+        path: 'page1',
+        component: _import('components/page1'),
+        name: 'page1',
         meta: { title: 'page1' }
       },
-      { 
-        path: 'page2', 
-        component: _import('components/page2'), 
-        name: 'page2', 
+      {
+        path: 'page2',
+        component: _import('components/page2'),
+        name: 'page2',
         meta: { title: 'page2' }
       },
-      { 
-        path: 'page3', 
-        component: _import('components/page3'), 
-        name: 'page3', 
+      {
+        path: 'page3',
+        component: _import('components/page3'),
+        name: 'page3',
         meta: { title: 'page3' }
-      },
+      }
     ]
   }
 ]

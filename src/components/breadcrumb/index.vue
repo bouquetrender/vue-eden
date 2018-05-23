@@ -23,7 +23,7 @@
 <script>
 export default {
   name: 'breadcrumb',
-  data () {
+  data() {
     return {
       list: null
     }
@@ -37,11 +37,13 @@ export default {
     }
   },
   methods: {
-    getBreadcrumb () {
+    getBreadcrumb() {
       let matched = this.$route.matched.filter(item => item.name)
       console.log(this.$route.matched)
       if (matched[0] && matched[0].name !== 'dashboard') {
-        matched = [{ path: '/dashboard', meta: { title: 'dashboard' }}].concat(matched)
+        matched = [{ path: '/dashboard', meta: { title: 'dashboard' } }].concat(
+          matched
+        )
       }
       this.list = matched
     },
