@@ -1,16 +1,17 @@
 <template>
-  <el-menu
-    class="sidebar-menu"
-    mode="vertical"
-    :show-timeout="200"
-    :default-active="$route.path"
-    :collapse="isCollapse"
-    background-color="#556d84"
-    text-color="#fff"
-    active-text-color="#41B883"
-  >
-    <sidebar-item :routes="permission_routers"></sidebar-item>
-  </el-menu>
+  <el-scrollbar wrapClass="scrollbar-wrapper">
+    <el-menu
+      class="sidebar-menu"
+      mode="vertical"
+      :show-timeout="200"
+      :default-active="$route.path"
+      :collapse="isCollapse"
+      :background-color="bg"
+      :text-color="tc"
+      :active-text-color="atc">
+      <sidebar-item :routes="permission_routers"></sidebar-item>
+    </el-menu>
+  </el-scrollbar>
 </template>
 
 <script>
@@ -19,6 +20,13 @@ import sidebarItem from './SidebarItem'
 
 export default {
   name: 'Sidebar',
+  data () {
+    return {
+      bg: '#556d84',
+      tc: '#fff',
+      atc: '#41B883'
+    }
+  },
   components: {
     sidebarItem
   },
@@ -33,10 +41,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-.sidebar-menu
-  border none
-  height 100%
-  width 100% !important
-</style>

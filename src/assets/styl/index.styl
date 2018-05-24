@@ -8,6 +8,8 @@ opacity(n)
 
 .edenfont
   font-family 'Avenir', "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif
+.edenMenuFont
+  font-family "PingFang SC", "Helvetica Neue", Helvetica, "Microsoft YaHei", "微软雅黑", Arial, sans-serif !important
 
 html
 body
@@ -30,12 +32,40 @@ a:focus
 #app
   height 100%
   min-width 1024px
-  min-height 768px
   -webkit-font-smoothing antialiased
+
+  // sidebar
+  .sidebar-wrap
+  .el-submenu__icon-arrow
+    color white
+
+  .el-submenu
+    .el-menu-item
+      background-color submenu-bg !important
+      &:hover
+        background-color menu-hover !important
+
+  // sidebar scroll
+  .sidebar-container
+    height 100%
+    z-index 1005
+    .scrollbar-wrapper
+      height 'calc(%s + %s)' % (100% 5px)
+      .el-scrollbar__view
+        height 100%
+      .el-scrollbar__wrap
+        overflow-x hidden
+    .el-menu
+      @extend .edenMenuFont
+      border none
+      height 100%
+      width 100% !important
+    .el-menu--collapse
+      .el-submenu__icon-arrow
+        display none
 
 .el-notification__content p
   text-align left
-
 
 // nprogress style
 #nprogress 
@@ -46,3 +76,23 @@ a:focus
   .spinner-icon
     border-top-color main-color !important
     border-left-color main-color !important
+
+// scrollbar
+::-webkit-scrollbar
+  width 6px
+  height 6px
+::-webkit-scrollbar-track
+  background 0 0
+::-webkit-scrollbar-thumb
+  background-color #ccc
+  border-radius 5px
+::-webkit-scrollbar-thumb:hover 
+  background-color #666
+::-webkit-scrollbar-corner
+  background-color #535353
+::-webkit-scrollbar-resizer
+  background-color #FF6E00
+body::-webkit-scrollbar 
+  width 8px
+body::-webkit-scrollbar-thumb 
+  background-color #ddd

@@ -52,7 +52,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .seamless-warp
   display inline-block
   min-width 300px

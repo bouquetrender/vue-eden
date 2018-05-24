@@ -14,7 +14,7 @@
             :name="item.children[0].meta.icon" 
             :scale="2">
           </icon>
-          <span
+          <span slot="title"
             v-if="item.children[0].meta && item.children[0].meta.title">
             {{getTitle(item.children[0].meta.title)}}
           </span>
@@ -33,8 +33,8 @@
             :name="item.meta.icon"
             :scale="2">
           </icon>
-          <span v-if="item.meta && item.meta.title">
-            {{getTitle(item.meta.title)}}
+          <span slot="title" v-if="item.meta && item.meta.title">
+            {{sliderState === 'full' ? getTitle(item.meta.title) : ''}}
           </span>
         </template>
         <template v-for="child in item.children" v-if="!child.hidden">
@@ -78,7 +78,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['sidebar'])
+    sliderState() {
+      return this.$store.getters.sidebar.sliderState
+    }
   },
   methods: {
     onlyOneShowingChildren(children) {
@@ -94,18 +96,9 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-.sidebar-wrap
-  .el-submenu__icon-arrow
-    color white
-    margin-top -4px
-</style>
-
-
 <style lang="stylus" scoped>
 .el-submenu,
 .el-menu-item
-  font-family "PingFang SC", "Helvetica Neue", Helvetica, "Microsoft YaHei", "微软雅黑", Arial, sans-serif !important
   font-size 0
   svg
     margin-right 17px

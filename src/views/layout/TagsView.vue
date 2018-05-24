@@ -69,7 +69,7 @@ export default {
 <style lang="stylus">
 .tags-handle
   .el-button--medium
-    padding 11px 16px
+    padding 12px 16px
     border-radius 0
 
 .tags-inner
@@ -79,6 +79,8 @@ export default {
     border 1px solid #e9eaec
     color #4c4c4c
     margin 1px 4px 0px 0px
+  .el-icon-close
+    color #659c84
 </style>
 
 <style lang="stylus" scoped>

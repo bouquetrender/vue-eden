@@ -6,7 +6,7 @@
     
     <el-container>
       <el-aside :width="asideWidth">
-        <side-bar />
+        <side-bar class="sidebar-container" />
       </el-aside>
 
       <el-main>
@@ -53,7 +53,7 @@ export default {
     overflow hidden
 
   .el-aside
-    transition width .4s
+    transition width .3s
     background #556d84
     color #fff
     overflow hidden
