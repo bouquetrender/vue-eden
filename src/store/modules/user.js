@@ -50,6 +50,7 @@ const user = {
           await logout(state.token)
           commit(types.SET_ROLES, '')
           commit(types.SET_ROLES, [])
+          Cookies.remove('user')
           removeToken()
           resolve()
         } catch (error) {
