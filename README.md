@@ -11,7 +11,7 @@
   </a>
 </p>
 
-vue-eden 是一个美观的后台管理系统模板，简称 Eden（伊甸园）。预览页面和文档即将完成。主要使用了 vue 框架与 element-ui 组件库开发。Eden 在后台集成方面没有这么复杂，只包含了最基础和最常用的功能。也易移除模块，当做基础模板进行开发。Eden 选用了 Stylus 编写 CSS，因为我喜欢。Eden 基于 vue-cli3 构建环境进行开发，没有暴露 Webpack 配置文件而直接通过 vue.config.js 里进行配置更改，代码采用了 ESLint + Prettier 格式化。
+vue-eden 是一个美观的后台管理系统模板，简称 Eden（伊甸园）。**目前正在开发中，[预览页面](https://sakuyakun.github.io/vue-eden/)和文档即将完成**。主要使用了 vue 框架与 element-ui 组件库开发。Eden 在后台集成方面没有这么复杂，只包含了最基础和最常用的功能。也易移除模块，当做基础模板进行开发。Eden 选用了 Stylus 编写 CSS，因为我喜欢。Eden 基于 vue-cli3 构建环境进行开发，没有暴露 Webpack 配置文件而直接通过 vue.config.js 里进行配置更改，代码采用了 ESLint + Prettier 格式化。
 
 ![id](https://i.loli.net/2018/05/19/5aff9f7bdb36f.png)
 
