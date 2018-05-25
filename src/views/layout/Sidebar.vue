@@ -20,7 +20,7 @@ import sidebarItem from './SidebarItem'
 
 export default {
   name: 'Sidebar',
-  data () {
+  data() {
     return {
       bg: '#556d84',
       tc: '#fff',

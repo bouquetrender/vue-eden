@@ -40,26 +40,28 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .el-container
-    width 100%
-    height 100%
+@import "../../assets/styl/variables.styl"
 
-  .el-header
-    padding 0
-    font-size 0
-    line-height 60px
-    background white
-    box-sizing border-box
-    overflow hidden
+.el-container
+  width 100%
+  height 100%
 
-  .el-aside
-    transition width .3s
-    background #556d84
-    color #fff
-    overflow hidden
+.el-header
+  padding 0
+  font-size 0
+  line-height 60px
+  background white
+  box-sizing border-box
+  overflow hidden
 
-  .el-main
-    padding 0
-    height 100%
-    overflow auto
+.el-aside
+  transition width .3s
+  background el-aside-bg
+  color el-aside-color
+  overflow hidden
+
+.el-main
+  padding 0
+  height 100%
+  overflow auto
 </style>

@@ -12,7 +12,7 @@ const Layout = _import('layout/Layout')
     roles: ['admin','sakuya']    设置该路由进入的权限，支持多个权限叠加
     title: 'title'               设置该路由在侧边栏和面包屑中展示的名字
     icon: 'svg-name'             设置该路由的图标
-    noCache: true                如果设置为true ,则不会被 <keep-alive> 缓存(默认 false)
+    cache: false                 如果设置为true ,则会被 <keep-alive> 缓存(默认 false)
   }
 **/
 export const asyncRouterMap = [

@@ -20,13 +20,15 @@
         class="tags-inner"
         :style="{ left: tagsScrollLeft + 'px' }">
         <el-tag
+          ref="tag"
           size="large"
           color="white"
-          v-for="tag in tags"
-          :key="tag.name"
-          :closable="true"  
-          @on-close="closePage"
-          @click.native="linkTo(tag)">
+          v-for="(tag, index) in visitedViews"
+          :key="tag.path"
+          :closable="true"
+          :class="tag.name === currentViewName ? 'el-tag-active' : ''"
+          @close="closeView($event, tag, index)"
+          @click.native="jumpTo(tag)">
           {{tag.name}}
         </el-tag>
       </div>
@@ -36,37 +38,164 @@
 </template>
 
 <script>
+import storage from '@/utils/storage'
+
 export default {
   name: 'tagsviews',
   data() {
     return {
       tagsScrollLeft: 0,
-      tags: [
-        { name: '标签一' },
-        { name: '标签二' },
-        { name: '标签三' },
-        { name: '标签四' },
-        { name: '标签五' },
-        { name: '标签六' }
-      ]
+      tags: [],
+      currentViewName: ''
+    }
+  },
+  mounted() {
+    this.addViewTags()
+
+    setTimeout(() => {
+      let currTagIndex = null
+      this.visitedViews.forEach((view, index) => {
+        view.name === this.$route.name ? (currTagIndex = index) : null
+      })
+      currTagIndex ? this.moveToView(this.$refs.tag[currTagIndex].$el) : null
+    }, 1)
+  },
+  computed: {
+    visitedViews() {
+      return this.$store.state.tagsView.visitedViews
+    }
+  },
+  watch: {
+    $route() {
+      this.addViewTags()
     }
   },
   methods: {
-    closePage() {},
-    linkTo(tag) {},
-    handleCommand(command) {},
-    handlescroll() {},
+    moveToView(tagEle) {
+      if (tagEle.offsetLeft < -this.tagsScrollLeft) {
+        this.tagsScrollLeft = -tagEle.offsetLeft + 10
+      } else if (
+        tagEle.offsetLeft + 10 > -this.tagsScrollLeft &&
+        tagEle.offsetLeft + tagEle.offsetWidth <
+          -this.tagsScrollLeft + this.$refs.tagsView.offsetWidth - 100
+      ) {
+        this.tagsScrollLeft = Math.min(
+          0,
+          this.$refs.tagsView.offsetWidth -
+            100 -
+            tagEle.offsetWidth -
+            tagEle.offsetLeft -
+            20
+        )
+      } else {
+        this.tagsScrollLeft = -(
+          tagEle.offsetLeft -
+          (this.$refs.tagsView.offsetWidth - 100 - tagEle.offsetWidth) +
+          15
+        )
+      }
+    },
+    addViewTags() {
+      const route = this.$route
+      if (!route.name) {
+        return false
+      }
+      this.currentViewName = route.name
+      this.$store.dispatch('addVisitedTag', route)
+    },
+    async closeView(event, tagObj, tagIndex) {
+      const visitedViews = await this.$store.dispatch(
+        'removeVisitedTag',
+        tagObj
+      )
+      if (this.currentActive(tagObj)) {
+        const nextTag = visitedViews.slice(tagIndex)[0]
+        const prevTag = visitedViews.slice(tagIndex - 1)[0]
+        if (nextTag) {
+          this.$router.push(nextTag.path)
+          this.currentViewName = nextTag.name
+        } else if (prevTag) {
+          this.$router.push(prevTag.path)
+          this.currentViewName = prevTag.name
+        } else {
+          this.$router.push('/')
+          this.currentViewName = 'dashboard'
+        }
+      }
+    },
+    currentActive(tagObj) {
+      return (
+        tagObj.name === this.$route.name || tagObj.path === this.$route.path
+      )
+    },
+    jumpTo(tag) {
+      this.$router.push(tag.path)
+      this.currentViewName = tag.name
+    },
+    async handleCommand(command) {
+      const router = this.$route
+      switch (command) {
+        case 'closeOther':
+          if (this.visitedViews.length === 1) break
+          this.$store.dispatch('closeOtherView', router)
+          break
+        case 'closeAll':
+          await this.$store.dispatch('closeAllView')
+          this.$router.push('/')
+          this.currentViewName = 'dashboard'
+          break
+      }
+    },
     getTitle(title) {
       if (this.$te(`route.${title}`)) {
         return this.$t(`route.${title}`)
       }
       return title
+    },
+    handlescroll(event) {
+      let type = event.type
+      let delta = 0
+      if (type === 'DOMMouseScroll' || type === 'mousewheel') {
+        delta = event.wheelDelta ? event.wheelDelta : -(event.detail || 0) * 40
+      }
+      let left = 0
+      if (delta > 0) {
+        left = Math.min(0, this.tagsScrollLeft + delta)
+      } else {
+        if (
+          this.$refs.tagsView.offsetWidth - 100 <
+          this.$refs.tagsScroll.offsetWidth
+        ) {
+          if (
+            this.tagsScrollLeft <
+            -(
+              this.$refs.tagsScroll.offsetWidth -
+              this.$refs.tagsView.offsetWidth +
+              100
+            )
+          ) {
+            left = this.tagsScrollLeft
+          } else {
+            left = Math.max(
+              this.tagsScrollLeft + delta,
+              this.$refs.tagsView.offsetWidth -
+                this.$refs.tagsScroll.offsetWidth -
+                100
+            )
+          }
+        } else {
+          this.tagsScrollLeft = 0
+        }
+      }
+      this.tagsScrollLeft = left
     }
   }
 }
 </script>
 
 <style lang="stylus">
+@import "../../assets/styl/variables.styl"
+
 .tags-handle
   .el-button--medium
     padding 12px 16px
@@ -74,13 +203,23 @@ export default {
 
 .tags-inner
   .el-tag
+    transition all .3s
     border-radius 2px
     cursor pointer
-    border 1px solid #e9eaec
-    color #4c4c4c
+    border 1px solid tag-border
+    color tag-color
     margin 1px 4px 0px 0px
   .el-icon-close
-    color #659c84
+    color tag-close
+  .el-tag-active
+    background-color tag-active-bg !important
+    color tag-active-color
+    .el-icon-close
+      transition all .3s
+      color tag-active-color
+      &:hover
+        background-color tag-active-color
+        color tag-active-bg
 </style>
 
 <style lang="stylus" scoped>

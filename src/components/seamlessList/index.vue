@@ -62,10 +62,10 @@ export default {
   cursor pointer
   float right
   &__content
-    transition color .4s
+    transition color .5s
     height 60px
     width 100%
-    color #39986d
+    color #737373
     &:hover
       color #39986d
   &__date
