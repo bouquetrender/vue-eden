@@ -19,6 +19,8 @@ export default {
     switchlang: 'Switch Language Success'
   },
   login: {
+    edenPart1: 'VUE',
+    edenPart2: 'EDEN',
     title: 'Login Form',
     btn: 'Login',
     radioEN: 'English',
@@ -36,11 +38,18 @@ export default {
     forget_passwrd: 'please enter new password',
     confirm_passwrd: 'confirm new password',
     forget_btn: 'Confirm',
-    forget_back: 'Back'
+    forget_back: 'Back',
+    validfaild: 'Login form does not pass !',
+    pwdChanged: 'Password Reset Successfully !'
   },
   sidebarDropDown: {
     profile: 'Profile',
     lock: 'Lock',
     logout: 'Logout'
+  },
+  msg: {
+    msg1: 'You have a new message from Sakuya.',
+    msg2: 'Chekcout today eden system report.',
+    msg3: 'Eden system has some new update, check it.'
   }
 }

@@ -34,7 +34,6 @@ http.interceptors.response.use(
         // 接口自定义错误代码
         // 移除登陆token 显示接口错误消息
       }
-      // process.env.NODE_ENV !== 'production' && console.error(res)
       return Promise.reject(res)
     }
     return Promise.resolve(res)

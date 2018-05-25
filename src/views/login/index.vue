@@ -1,7 +1,7 @@
 <template>
   <div class="login-page">
     <langselect class="lang" />
-    <el-tooltip class="svg-github" effect="dark" content="Star me" placement="bottom">
+    <el-tooltip class="svg-github" effect="dark" content="Fork Me" placement="bottom">
       <a href="https://github.com/Sakuyakun/vue-eden"><icon name="github" :scale="2.5"></icon></a>
     </el-tooltip>
     
@@ -13,7 +13,7 @@
             <icon name="tree" :scale="8"></icon>
             <div class="title">
               <a>
-                <span>VUE</span><span class="subtitle">EDEN</span>
+                <span>{{$t('login.edenPart1')}}</span><span class="subtitle">{{$t('login.edenPart2')}}</span>
               </a>
             </div>
           </div>
@@ -68,7 +68,7 @@
                     <el-button @click="wrapSwitch(true)" type="primary">{{$t('login.forget_back')}}</el-button>
                   </el-col>
                   <el-col :span="12">
-                    <el-button type="primary">{{$t('login.forget_btn')}}</el-button>
+                    <el-button @click="forgetHandle" type="primary">{{$t('login.forget_btn')}}</el-button>
                   </el-col>
                 </el-row>
               </el-form-item>
@@ -97,6 +97,14 @@ export default {
   name: 'login',
   components: {
     langselect
+  },
+  mounted() {
+    this.$notify({
+      title: '登陆提示',
+      message: '用户名 admin 密码随意输入',
+      position: 'top-left',
+      duration: 0
+    })
   },
   data() {
     const validobj = {
@@ -133,7 +141,7 @@ export default {
     return {
       lang: this.$store.state.app.language,
       ruleForm: {
-        username: storage.get('loginUser') || '',
+        username: storage.get('loginUser') || 'admin',
         password: ''
       },
       rules: {
@@ -193,6 +201,7 @@ export default {
             })
             this.loading = false
             if (response.data) {
+              this.$notify.closeAll()
               this.$router.push({ path: '/' })
             } else {
               this.$message({
@@ -207,9 +216,13 @@ export default {
           }
         } else {
           this.loading = false
-          this.$message.error('Login form does not pass !')
+          this.$message.error(this.$t('login.validfaild'))
         }
       })
+    },
+    forgetHandle() {
+      this.$message.success(this.$t('login.pwdChanged'))
+      this.wrapSwitch(true)
     }
   }
 }
@@ -251,8 +264,8 @@ export default {
     position absolute
     right 29px
     top 25px
-  .translate-left //525
-  .translate-right // -375
+  .translate-left
+  .translate-right
     will-change auto
     transform translateX(0px)
     transition transform .6s ease-in-out
@@ -267,8 +280,8 @@ export default {
   height 400px
   background white
   border-radius 4px
-  transform translateY(-25px)
-  box-shadow 0 1px 3px 0 rgba(0,0,0,0.12), 0 0 3px 0 rgba(0,0,0,0.04)
+  transform translateY(-10px)
+  box-shadow 0 1px 3px 0 rgba(0, 0, 0, .12), 0 0 3px 0 rgba(0, 0, 0, .04)
 
   .logo
     padding-top 26px

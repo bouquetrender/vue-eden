@@ -21,8 +21,7 @@
         <seamless-list 
           :messageList="messageList"
           :singleHeight="60"
-          :limitMoveNum="2"
-        />
+          :limitMoveNum="2"/>
       </div>
     </div>
 
@@ -65,15 +64,15 @@ export default {
       messageList: [
         {
           date: dayjs().format('YYYY-MM-DD'),
-          msg: 'You have a new message from unknown name.'
+          msg: this.$t('msg.msg1')
         },
         {
           date: dayjs().format('YYYY-MM-DD'),
-          msg: 'Chekcout today eden system report.'
+          msg: this.$t('msg.msg2')
         },
         {
           date: dayjs().format('YYYY-MM-DD'),
-          msg: 'Eden system has some new update, check it.'
+          msg: this.$t('msg.msg3')
         }
       ]
     }

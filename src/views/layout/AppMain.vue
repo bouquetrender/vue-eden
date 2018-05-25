@@ -13,8 +13,7 @@ export default {
   name: 'AppMain',
   computed: {
     cachedViews() {
-      // TODO: cachedViews
-      // return this.$store.state.tagsView.cachedViews
+      return this.$store.state.tagsView.cachedViews
     }
   }
 }
