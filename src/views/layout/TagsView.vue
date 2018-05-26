@@ -5,7 +5,7 @@
       @mousewheel="handlescroll"
       @DOMMouseScroll="handlescroll">
       <div class="tags-handle">
-        <el-dropdown @command="handleCommand">
+        <el-dropdown trigger="click" @command="handleCommand">
           <el-button type="primary">
             {{$t('tags.handle')}}<i class="el-icon-arrow-down el-icon--right"></i>
           </el-button>

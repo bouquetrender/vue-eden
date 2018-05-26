@@ -7,7 +7,7 @@
     </el-carousel>
     <div class="lock-container">
       <div class="lock-container__box">
-        <h1>Unlock Eden System</h1>
+        <h1><span>{{$t('app.unlock')}} {{$t('login.edenPart1')}}</span><span class="subtitle">{{$t('login.edenPart2')}}</span></h1>
         <el-input v-model="pwd" placeholder="Enter Password"></el-input>
         <el-button class="btn" @click="unlock">unlock</el-button>
       </div>
@@ -55,9 +55,13 @@ export default {
   justify-content center
   &__box
     color #659c84
+    h1
+      text-align center
     .btn
       margin-top 20px
       width 100%
+    .subtitle
+      color #374b63
   
 .el-carousel__item
   display flex

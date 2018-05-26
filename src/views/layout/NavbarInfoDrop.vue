@@ -1,8 +1,8 @@
 <template>
   <div class="info-area">
-    <el-dropdown @command="dropdownComm" class="info-area__dropdown">
+    <el-dropdown trigger="click" @command="dropdownComm" class="info-area__dropdown">
       <span class="el-dropdown-link">
-        Sakuya<i class="el-icon-arrow-down el-icon--right"></i>
+        {{username}}<i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item command="profile">{{$t('sidebarDropDown.profile')}}</el-dropdown-item>
@@ -10,12 +10,21 @@
         <el-dropdown-item command="logout">{{$t('sidebarDropDown.logout')}}</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
+    <div @click="jumpToProfile" class="info-area__avatar">
+      <img :src="avatarUrl" />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'demo',
+  data() {
+    return {
+      username: this.$store.state.user.name,
+      avatarUrl: this.$store.state.user.avatar
+    }
+  },
   methods: {
     dropdownComm(command) {
       switch (command) {
@@ -37,14 +46,31 @@ export default {
     lockhandle() {
       this.$store.dispatch('setLockState', 'lock')
       this.$router.push('/lock')
-    }
+      this.$message.success('Eden system has been locked!')
+    },
+    jumpToProfile() {}
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+.inline-block-box
+  display inline-block
+  vertical-align middle
+
 .info-area
   &__dropdown
+    @extend .inline-block-box
     cursor pointer
-    vertical-align middle
+  &__avatar
+    @extend .inline-block-box
+    padding-left 10px
+    width 40px
+    height 40px
+    overflow hidden
+    cursor pointer
+    img
+      border-radius 50%
+      width 100%
+      height auto
 </style>

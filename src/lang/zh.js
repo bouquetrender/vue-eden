@@ -16,7 +16,8 @@ export default {
     page3: '组件3'
   },
   app: {
-    switchlang: '切换语言成功'
+    switchlang: '切换语言成功',
+    unlock: '解锁'
   },
   login: {
     edenPart1: '伊甸',

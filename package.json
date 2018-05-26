@@ -28,8 +28,9 @@
     "semi": false
   },
   "dependencies": {
+    "@tweenjs/tween.js": "^17.2.0",
     "axios": "^0.18.0",
-    "dayjs": "^1.6.3",
+    "dayjs": "^1.6.4",
     "element-ui": "^2.3.9",
     "js-cookie": "^2.2.0",
     "mockjs": "^1.0.1-beta3",
@@ -60,7 +61,7 @@
     "stylus-loader": "^3.0.2",
     "vue-svg-icon": "^1.2.9",
     "vue-template-compiler": "^2.5.16",
-    "webpack-bundle-analyzer": "^2.13.0"
+    "webpack-bundle-analyzer": "^2.13.1"
   },
   "engines": {
     "node": ">= 8.0.0",

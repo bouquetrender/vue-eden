@@ -1,6 +1,6 @@
 <template>
   <div class="el-langselect">
-    <el-dropdown @command="handleSetLanguage">
+    <el-dropdown trigger="click" @command="handleSetLanguage">
       <div class="el-langselect__box">
         <icon class="el-langselect__icon" name="earth" :scale="2.9"></icon>
       </div>

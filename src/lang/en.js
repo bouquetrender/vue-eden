@@ -16,7 +16,8 @@ export default {
     page3: 'page3'
   },
   app: {
-    switchlang: 'Switch Language Success'
+    switchlang: 'Switch Language Success',
+    unlock: 'UNLOCK'
   },
   login: {
     edenPart1: 'VUE',
