@@ -63,11 +63,6 @@ vue-eden 是一个美观的后台管理系统模板，简称 Eden（伊甸园）
 └── vue.config.js      vue-cli3 配置文件
 ```
 
-#### 关于动态路由与权限控制
-
-动态路由列表存放在 router 目录下的 asyncRouterMap.js 文件。并且通过 meta 对象属性里的 roles 控制。roles 存放的是用户名。登陆成功后会将用户名存在 cookie 中并跳转到首页，跳转前中会触发 router 的 beforeEach 钩子函数，通过请求获得该用户的 roles（或者其他方式），并通过你设置 asyncRouterMap.js 路由文件中 meta 属性里的 roles 对比，如果存在则添加到一个临时变量中。最后将这个过滤后的路由对象保存在 store 中 state 里的 addRouters。然后通过 router.addRoutes 添加路由信息。并跳转到主页。这时 sidebar 侧边栏会根据 addRouters 路由数组遍历生成。
-
-
 ## 启动
 
 执行 serve 脚本将自动启动 http://localhost:8863

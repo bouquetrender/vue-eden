@@ -33,6 +33,10 @@ export default {
     async logouthandle() {
       await this.$store.dispatch('logout')
       window.location.reload()
+    },
+    lockhandle() {
+      this.$store.dispatch('setLockState', 'lock')
+      this.$router.push('/lock')
     }
   }
 }

@@ -36,6 +36,12 @@ export const constantRouterMap = [
     hidden: true
   },
   {
+    path: '/lock',
+    component: _import('lock/index'),
+    name: 'lock',
+    hidden: true
+  },
+  {
     path: '',
     component: Layout,
     redirect: 'dashboard',

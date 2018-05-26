@@ -4,6 +4,7 @@ const getters = {
   getSliderStateWidth: state => {
     return state.app.sidebar.sliderState === 'full' ? '240px' : '60px'
   },
+  lockState: state => state.app.lock,
   /* permission */
   permission_routers: state => state.permission.routers,
   addRouters: state => state.permission.addRouters,

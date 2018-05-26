@@ -95,13 +95,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.el-submenu,
-.el-menu-item
-  font-size 0
-  svg
-    margin-right 17px
-  span 
-    font-size 14px
-.svg-icon
-  fill currentColor
+.sidebar-wrap
+  .el-submenu,
+  .el-menu-item
+    font-size 0
+    svg
+      margin-right 17px
+    span 
+      font-size 14px
+  .svg-icon
+    fill currentColor
 </style>

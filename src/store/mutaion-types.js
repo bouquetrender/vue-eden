@@ -2,6 +2,7 @@
 export const SET_LANGUAGE = 'SET_LANGUAGE'
 export const SET_FIRSTLOGIN = 'SET_FIRSTLOGIN'
 export const SET_SLIDERSTATE = 'SET_SLIDERSTATE'
+export const SET_LOCK_STATE = 'SET_LOCK_STATE'
 
 // user
 export const SET_TOKEN = 'SET_TOKEN'

@@ -15,7 +15,14 @@ const whiteList = ['/login']
 
 router.beforeEach(async (to, from, next) => {
   nprogress.start()
-  if (getToken()) {
+  if (store.getters.lockState === 'lock' && to.name !== 'lock') {
+    next({
+      replace: true,
+      name: 'lock'
+    })
+  } else if (store.getters.lockState === 'unlock' && to.name === 'lock') {
+    next(false)
+  } else if (getToken()) {
     // 如果登录过后访问登录页面则跳回主页
     if (to.path === '/login') {
       next({ path: '/' })

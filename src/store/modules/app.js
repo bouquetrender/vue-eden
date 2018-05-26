@@ -9,7 +9,8 @@ const app = {
     language: Cookies.get('language') || 'en',
     sidebar: {
       sliderState: storage.get('sliderState')
-    }
+    },
+    lock: storage.get('lock') || 'unlock'
   },
   mutations: {
     [types.SET_LANGUAGE]: (state, language) => {
@@ -23,6 +24,10 @@ const app = {
     [types.SET_SLIDERSTATE]: (state, newSliderState) => {
       state.sidebar.sliderState = newSliderState
       storage.set('sliderState', newSliderState)
+    },
+    [types.SET_LOCK_STATE]: (state, lockstate) => {
+      state.lock = lockstate
+      storage.set('lock', lockstate)
     }
   },
   actions: {
@@ -41,6 +46,9 @@ const app = {
     },
     setSliderState({ commit }, newSliderState) {
       commit(types.SET_SLIDERSTATE, newSliderState)
+    },
+    setLockState({ commit }, lockstate) {
+      commit(types.SET_LOCK_STATE, lockstate)
     }
   }
 }
