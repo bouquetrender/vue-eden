@@ -242,7 +242,7 @@ export default {
     this.randomNum()
   },
   beforeDestroy() {
-    this.randomfn = null
+    clearInterval(this.randomfn)
   },
   methods: {
     firstLoginnotify() {

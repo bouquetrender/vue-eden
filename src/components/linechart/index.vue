@@ -83,7 +83,7 @@ export default {
 
     this.chart.dispose()
     this.chart = null
-    this.updatefn = null
+    clearInterval(this.updatefn)
   },
   watch: {
     chartData: {
