@@ -17,7 +17,6 @@ body
   width 100%
   height 100%
   background-color bg-color
-  overflow hidden
 
 ul
   list-style none
@@ -30,12 +29,24 @@ a:focus
   cursor pointer
   text-decoration none
 
+
+.el-card.is-always-shadow, 
+.el-card.is-hover-shadow:focus,
+.el-card.is-hover-shadow:hover
+  box-shadow 0 1px 6px rgba(0,0,0,.2) !important
+
 .widget-card
+  height 100%
+  width 100%
   overflow hidden
   border-radius 4px
   transition box-shadow .4s
   &:hover
     box-shadow 0 1px 6px rgba(0,0,0,.2)
+
+.deleteline
+  .el-checkbox__label
+    text-decoration line-through
 
 #app
   height 100%

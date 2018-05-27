@@ -31,6 +31,7 @@
     "@tweenjs/tween.js": "^17.2.0",
     "axios": "^0.18.0",
     "dayjs": "^1.6.4",
+    "echarts": "^4.1.0",
     "element-ui": "^2.3.9",
     "js-cookie": "^2.2.0",
     "mockjs": "^1.0.1-beta3",
