@@ -53,7 +53,7 @@
           <div slot="header" class="todo-header">
             <span>ToDo</span>
             <div class="enterTodo">
-              <el-input v-model="addtodo" placeholder="need to do"></el-input>
+              <el-input @keyup.enter.native="addTasks" v-model="newTasks" placeholder="need to do"></el-input>
             </div>
           </div>
           <div class="todo-list">
@@ -78,15 +78,15 @@
           </div>
           <div class="report-content">
             <el-alert
-              title="Live a noble and honest life. Reviving past times in your old age will help you to enjoy your life again."
+              title="Keep me where the light is. Keep me where the light is."
               type="success">
             </el-alert>
             <el-alert
-              title="Live a noble and honest life. Reviving past times in your old age will help you to enjoy your life again."
+              title="Keep me where the light is. Keep me where the light is."
               type="success">
             </el-alert>
             <el-alert
-              title="Live a noble and honest life. Reviving past times in your old age will help you to enjoy your life again."
+              title="Keep me where the light is. Keep me where the light is."
               type="info">
             </el-alert>
             <el-row :gutter="24">
@@ -99,11 +99,11 @@
               </el-col>
             </el-row>
             <el-alert
-              title="Live a noble and honest life. Reviving past times in your old age will help you to enjoy your life again."
+              title="Keep me where the light is. Keep me where the light is."
               type="warning">
             </el-alert>
             <el-alert
-              title="Live a noble and honest life. Reviving past times in your old age will help you to enjoy your life again."
+              title="Keep me where the light is. Keep me where the light is."
               type="error">
             </el-alert>
           </div>
@@ -182,7 +182,7 @@ export default {
       lineChartData: chartData.newGamer,
       pieChartData: chartData.fpsGame,
       pieLegendData: chartData.fpsLegend,
-      addtodo: '',
+      newTasks: '',
       todolist: [
         {
           state: true,
@@ -264,6 +264,13 @@ export default {
         this.download = randomIntegerInRange(100, 1000)
         this.switchPlayer = randomIntegerInRange(1000, 10000)
       }, 3000)
+    },
+    addTasks() {
+      this.todolist.push({
+        state: false,
+        task: this.newTasks
+      })
+      this.newTasks = ''
     }
   }
 }
@@ -282,16 +289,10 @@ box-style(bg)
   background white
   display flex
   margin-top 15px
-  &:hover
-    svg
-      height 50px
-      width 50px
   .leftPart
     background bg
     width 130px
     @extend .flex-center
-    svg
-      transition height .4s, width .4s
   .rightPart
     flex 1
     color #99a9c0

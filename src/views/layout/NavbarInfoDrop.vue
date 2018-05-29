@@ -45,7 +45,9 @@ export default {
     },
     lockhandle() {
       this.$store.dispatch('setLockState', 'lock')
-      this.$router.push('/lock')
+      this.$router.push({
+        path: '/lock'
+      })
       this.$message.success('Eden system has been locked!')
     },
     jumpToProfile() {}
