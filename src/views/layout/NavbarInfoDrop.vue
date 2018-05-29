@@ -35,7 +35,7 @@ export default {
           this.lockhandle()
           break
         case 'profile':
-          this.profilehandle()
+          this.jumpToProfile()
           break
       }
     },
@@ -50,7 +50,11 @@ export default {
       })
       this.$message.success('Eden system has been locked!')
     },
-    jumpToProfile() {}
+    jumpToProfile() {
+      this.$router.push({
+        path: '/profile/index'
+      })
+    }
   }
 }
 </script>

@@ -74,12 +74,14 @@ export default {
     }, 3100)
   },
   beforeDestroy() {
-    this.chart && this.autoResize ?
-      window.removeEventListener('resize', this.chartResizeHandle) : null
+    this.chart && this.autoResize
+      ? window.removeEventListener('resize', this.chartResizeHandle)
+      : null
 
     const sidebarElm = document.getElementsByClassName('el-aside')[0]
-    sidebarElm ? 
-      sidebarElm.removeEventListener('transitionend', this.chartResizeHandle) : null
+    sidebarElm
+      ? sidebarElm.removeEventListener('transitionend', this.chartResizeHandle)
+      : null
 
     this.chart.dispose()
     this.chart = null

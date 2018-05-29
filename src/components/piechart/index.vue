@@ -41,7 +41,9 @@ export default {
     window.addEventListener('resize', this.pieResizeHandle)
   },
   beforeDestroy() {
-    this.piechart ? window.removeEventListener('resize', this.pieResizeHandle) : null
+    this.piechart
+      ? window.removeEventListener('resize', this.pieResizeHandle)
+      : null
     this.piechart.dispose()
     this.piechart = null
   },

@@ -2,6 +2,23 @@ import _import from '@/utils/import'
 const Layout = _import('layout/Layout')
 
 export const asyncRouterMap = [
+  // 个人中心
+  {
+    path: '/profile',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'index',
+        component: _import('profile/index'),
+        name: 'profile',
+        meta: {
+          title: 'profile',
+          icon: 'test'
+        }
+      }
+    ]
+  },
   // 控件
   {
     path: '/widget',
@@ -13,6 +30,22 @@ export const asyncRouterMap = [
         name: 'widget',
         meta: {
           title: 'widget',
+          icon: 'test'
+        }
+      }
+    ]
+  },
+  // 卡片列表
+  {
+    path: '/cardlist',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: _import('cardlist/index'),
+        name: 'cardlist',
+        meta: {
+          title: 'Card List',
           icon: 'test'
         }
       }

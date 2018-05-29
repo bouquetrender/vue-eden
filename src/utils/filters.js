@@ -54,7 +54,8 @@ export const number = {
       console.error(f)
     }
     return (
-      Number(d.replace('.', '')) * Number(e.replace('.', '')) / Math.pow(10, c)
+      (Number(d.replace('.', '')) * Number(e.replace('.', ''))) /
+      Math.pow(10, c)
     )
   },
   div(a, b) {

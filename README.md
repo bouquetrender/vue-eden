@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="220" src="https://i.loli.net/2018/05/21/5b02ebd9efd46.png">
+  <img width="350px" src="https://i.loli.net/2018/05/29/5b0d534fb41a8.png">
 </p>
 
 <p align="center">
@@ -11,29 +11,32 @@
   </a>
 </p>
 
-vue-eden 是一个美观的后台管理系统模板，简称 Eden（伊甸园）。可进[预览页面](https://sakuyakun.github.io/vue-eden/)查看，文档即将完成。主要使用了 vue 框架与 element-ui 组件库开发。Eden 在后台集成方面没有这么复杂，只包含了最基础和最常用的功能。也易移除模块，当做基础模板进行开发。Eden 选用了 Stylus 编写 CSS，因为我喜欢。Eden 基于 vue-cli3 构建环境进行开发，没有暴露 Webpack 配置文件而直接通过 vue.config.js 里进行配置更改，代码采用了 ESLint + Prettier 格式化。
+vue-eden 是一个美观的后台管理系统模板，简称 Eden（伊甸园）。可进[预览页面](https://sakuyakun.github.io/vue-eden/)查看。主要使用了 vue 框架与 element-ui 组件库开发。Eden 在后台集成方面没有过于复杂，只包含了最基础和最常用的功能。也易移除模块，当做基础模板进行开发。项目选用了 Stylus 编写 CSS，因为我喜欢。Eden 基于 vue-cli3 构建环境进行开发，没有暴露 Webpack 配置文件而直接通过 vue.config.js 里进行配置更改，采用了 ESLint + Prettier 格式化。
 
 ![page1.png](https://i.loli.net/2018/05/27/5b0a3fb50dc2b.png)
 
 ![page2.png](https://i.loli.net/2018/05/27/5b0a3fbb7f9f5.png)
 
-大概有以下这些功能
+伊甸园拥有：
 
-- [x] i18n
-- [x] Permission authentication
-- [x] Mock Data
-- [X] Base Layout
-- [X] sidebar / breadcrumb / tags-view
-- [X] Login / Logout / Lock
-- [ ] Markdown editor / preview
-- [ ] Screenshots
-- [ ] Documentation
+- [x] 舒适配色与布局
+- [x] 权限控制
+- [x] 动态路由
+- [x] MOCK 数据
+- [x] 登录登出
+- [x] 界面锁定
+- [x] 伸缩侧边栏
+- [x] 自适应布局
+- [x] 页面标签控制
+- [x] 国际化多语言
+- [ ] 截屏
+- [ ] 文档
 
 还有更多 ...
 
 ## 目录结构
 
-一些说明：SVG 图标存放在 SVG 目录中，因为我使用了 vue-svg-icon 更易于引入 SVG 文件。而主题色使用了官方推荐的[在线主题生成工具](https://elementui.github.io/theme-chalk-preview)，生成的一套覆盖色 css 直接在 main.js 中引入，当然你也可以通过修改使用其他方式动态更改主题色等。使用了 vue-i18n 处理国际化，具体配置在 lang 目录下。请求类选用了 axios，并且将请求方法存放在 api 目录下。
+一些说明：使用了 vue-svg-icon 组件，SVG 图标存放在 SVG 目录中。而主题色使用了官方推荐的[在线主题生成工具](https://elementui.github.io/theme-chalk-preview)生成的一套 css 直接在 main.js 中引入覆盖，当然你也可以通过修改使用其他方式动态更改主题色等。请求类选用了 axios，并且将请求方法逻辑分离存放在 api 目录下。
 
 ```
 .
