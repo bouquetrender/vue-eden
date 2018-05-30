@@ -51,7 +51,7 @@
       <el-col :sm="24" :lg="6">
         <el-card shadow="hover" class="todo-wrap">
           <div slot="header" class="todo-header">
-            <span>ToDo</span>
+            <span>{{$t('dashboard.todo')}}</span>
             <div class="enterTodo">
               <el-input @keyup.enter.native="addTasks" v-model="newTasks" placeholder="need to do"></el-input>
             </div>
@@ -74,7 +74,7 @@
       <el-col :sm="24" :lg="12">
         <el-card shadow="hover" class="system-report">
           <div slot="header" class="report-header">
-            <span class="">System Report Example</span>
+            <span class="">{{$t('dashboard.sr')}}</span>
           </div>
           <div class="report-content">
             <el-alert
@@ -112,7 +112,7 @@
       <el-col :sm="24" :lg="12">
         <el-card shadow="hover" class="pie-wrap">
           <div slot="header" class="pie-header">
-            <span class="">Echarts Pie Chart Example</span>
+            <span class="">{{$t('dashboard.pch')}}</span>
           </div>
           <pie-chart :chart-data="pieChartData" :legend-data="pieLegendData"></pie-chart>
         </el-card>

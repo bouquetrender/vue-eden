@@ -30,23 +30,23 @@ export const asyncRouterMap = [
         name: 'widget',
         meta: {
           title: 'widget',
-          icon: 'test'
+          icon: 'widgets'
         }
       }
     ]
   },
   // 卡片列表
   {
-    path: '/cardlist',
+    path: '/panels',
     component: Layout,
     children: [
       {
         path: 'index',
-        component: _import('cardlist/index'),
-        name: 'cardlist',
+        component: _import('panels/index'),
+        name: 'panels',
         meta: {
-          title: 'Card List',
-          icon: 'test'
+          title: 'panels',
+          icon: 'panels'
         }
       }
     ]
@@ -83,7 +83,7 @@ export const asyncRouterMap = [
         name: 'datatable',
         meta: {
           title: 'datatable',
-          icon: 'test'
+          icon: 'table'
         }
       }
     ]
@@ -96,7 +96,7 @@ export const asyncRouterMap = [
     name: 'components',
     meta: {
       title: 'components',
-      icon: 'test'
+      icon: 'comp'
     },
     children: [
       {

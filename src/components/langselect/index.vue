@@ -41,4 +41,8 @@ export default {
     cursor pointer
   &__icon
     vertical-align middle
+    color #515151
+    transition color .28s
+    &:hover
+      color #41b883
 </style>

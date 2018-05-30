@@ -47,4 +47,8 @@ export default {
 .svg-icon
   vertical-align middle
   cursor pointer
+  color #515151
+  transition color .28s
+  &:hover
+    color #41b883
 </style>

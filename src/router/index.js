@@ -52,7 +52,7 @@ export const constantRouterMap = [
         component: _import('dashboard/index'),
         meta: {
           title: 'dashboard',
-          icon: 'test',
+          icon: 'dashboard',
           noCache: true
         }
       }

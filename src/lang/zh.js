@@ -6,14 +6,15 @@ export default {
   },
   route: {
     dashboard: '首页',
-    documentation: '文档',
     widget: '控件',
     permission: '权限控制',
     datatable: '表格',
     components: '组件',
     page1: '组件1',
     page2: '组件2',
-    page3: '组件3'
+    page3: '组件3',
+    profile: '个人中心',
+    panels: '卡片展示'
   },
   app: {
     switchlang: '切换语言成功',
@@ -44,7 +45,7 @@ export default {
     pwdChanged: '密码重置成功！'
   },
   sidebarDropDown: {
-    profile: '个人信息',
+    profile: '个人中心',
     lock: '锁定系统',
     logout: '退出登录'
   },
@@ -52,5 +53,10 @@ export default {
     msg1: '你有一条来自管理员的新消息。',
     msg2: '查看本周伊甸园系统的监控汇报。',
     msg3: '伊甸园有一些新的升级，来一起看看吧。'
+  },
+  dashboard: {
+    sr: '系统报告',
+    pch: '占比统计',
+    todo: '待办事项'
   }
 }

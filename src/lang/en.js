@@ -6,14 +6,15 @@ export default {
   },
   route: {
     dashboard: 'Dashboard',
-    documentation: 'Documentation',
     widget: 'Widget',
     permission: 'Permission',
     datatable: 'Datatable',
     components: 'Components',
     page1: 'page1',
     page2: 'page2',
-    page3: 'page3'
+    page3: 'page3',
+    profile: 'Profile',
+    panels: 'Panels'
   },
   app: {
     switchlang: 'Switch Language Success',
@@ -52,5 +53,10 @@ export default {
     msg1: 'You have a new message from Sakuya.',
     msg2: 'Chekcout today eden system report.',
     msg3: 'Eden system has some new update, check it.'
+  },
+  dashboard: {
+    sr: 'System Report',
+    pch: 'Pie Chart',
+    todo: 'ToDo'
   }
 }

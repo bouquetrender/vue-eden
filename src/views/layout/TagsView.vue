@@ -29,7 +29,7 @@
           :class="tag.name === currentViewName ? 'el-tag-active' : ''"
           @close="closeView($event, tag, index)"
           @click.native="jumpTo(tag)">
-          {{tag.name}}
+          {{$t(`route.${tag.name}`)}}
         </el-tag>
       </div>
 
@@ -224,6 +224,8 @@ export default {
 @import "../../assets/styl/variables.styl"
 
 .tags-view
+  position relative
+  z-index 2
   background tags-bar-color
   height 40px
   width 100%
@@ -231,7 +233,6 @@ export default {
   border-top 1px solid #e6e6e6
   box-sizing border-box
   overflow hidden
-  z-index -1
   .tags-outer
     width 100%
     height 100%

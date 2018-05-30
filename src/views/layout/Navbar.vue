@@ -109,15 +109,21 @@ right-area-width = 250px
       height 100%
       width 60px
       .category-icon
+        color #515151
         cursor pointer
         height 100%
-        margin 0 20px 0 15px
+        padding 0 15px
+        transition color .28s
+        &:hover
+          color #41b883
     &__msglist
       float left
       height 60px
       width 'calc(%s - %s)' % (100% 60px)
       color #808080
       font-weight 500
+      padding-left 10px
+      box-sizing border-box
     &:after
       content ''
       clear both
