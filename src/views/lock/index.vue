@@ -32,7 +32,7 @@ export default {
       if (this.pwd === '') {
         this.$message.error('Please Enter Password!')
       } else {
-        this.$message.success('Unlock Successfully!')
+        this.$message.success(this.$t('lock.unlock'))
         this.$store.dispatch('setLockState', 'unlock')
         this.$router.push('/')
       }

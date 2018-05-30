@@ -58,5 +58,9 @@ export default {
     sr: 'System Report',
     pch: 'Pie Chart',
     todo: 'ToDo'
+  },
+  lock: {
+    locked: 'Eden system has been locked!',
+    unlock: 'Unlock Successfully!'
   }
 }

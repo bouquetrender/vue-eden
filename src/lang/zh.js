@@ -58,5 +58,9 @@ export default {
     sr: '系统报告',
     pch: '占比统计',
     todo: '待办事项'
+  },
+  lock: {
+    locked: '系统已被锁定！',
+    unlock: '系统已解锁成功！'
   }
 }

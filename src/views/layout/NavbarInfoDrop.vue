@@ -48,7 +48,7 @@ export default {
       this.$router.push({
         path: '/lock'
       })
-      this.$message.success('Eden system has been locked!')
+      this.$message.success(this.$t('lock.locked'))
     },
     jumpToProfile() {
       this.$router.push({
