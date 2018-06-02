@@ -7,8 +7,8 @@ function resolve(dir) {
 }
 
 module.exports = {
-  baseUrl: '/vue-eden/', // gh-pages
-  outputDir: 'dist',
+  baseUrl: process.env.baseUrl,
+  outputDir: process.env.outputDir,
   lintOnSave: true,
 
   // 调整内部的 webpack 配置
