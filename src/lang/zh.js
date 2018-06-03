@@ -21,8 +21,8 @@ export default {
     unlock: '解锁'
   },
   login: {
-    edenPart1: '伊甸',
-    edenPart2: '园',
+    edenPart1: 'VUE',
+    edenPart2: 'EDEN',
     title: '系统登录',
     btn: '登录',
     radioEN: '英语',

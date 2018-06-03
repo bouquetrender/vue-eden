@@ -20,13 +20,11 @@
 
 vue-eden 是一个美观的后台管理系统模板，简称 Eden（伊甸园）。主要使用了 vue 框架与 element-ui 组件库开发。Eden 在后台集成方面没有过于复杂，只包含了最基础和最常用的功能。也易移除模块，当做基础模板进行开发。
 
-
-
-![2.png](https://i.loli.net/2018/06/03/5b1365a1571ae.png)
-
 ![1.png](https://i.loli.net/2018/06/03/5b1365a26a871.png)
 
-![3.png](https://i.loli.net/2018/06/03/5b13659fdbfd1.png)
+![3.png](https://i.loli.net/2018/06/03/5b1366ea9f49c.png)
+
+![2.png](https://i.loli.net/2018/06/03/5b1365a1571ae.png)
 
 ![4.png](https://i.loli.net/2018/06/03/5b13659e29118.png)
 
