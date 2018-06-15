@@ -1,4 +1,5 @@
-// https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/config.md
+// https://cli.vuejs.org/
+
 const path = require('path')
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -11,8 +12,6 @@ module.exports = {
   outputDir: process.env.outputDir,
   lintOnSave: true,
 
-  // 调整内部的 webpack 配置
-  // ttps://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/webpack.md
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
       // 为生产环境修改配置...
@@ -21,7 +20,6 @@ module.exports = {
     }
   },
   chainWebpack: config => {
-    // https://github.com/mozilla-neutrino/webpack-chain#getting-started
     config.resolve.alias
       .set('vue$', 'vue/dist/vue.esm.js')
       .set('@', resolve('src'))
@@ -43,9 +41,7 @@ module.exports = {
   },
 
   productionSourceMap: true,
-  // CSS 相关选项
   css: {
-    // 是否开启 CSS source map？
     sourceMap: false
   },
 
@@ -55,6 +51,6 @@ module.exports = {
     port: 8863,
     https: false,
     hotOnly: false,
-    proxy: null // string | Object
+    proxy: null
   }
 }

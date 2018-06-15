@@ -46,13 +46,13 @@ const tagView = {
       state.visitedViews = newView
       setViews(newView)
     },
-    [types.CLOSE_ALL_TAG]: (state, route) => {
+    [types.CLOSE_ALL_TAG]: state => {
       state.visitedViews = []
       setViews([])
     }
   },
   actions: {
-    addVisitedTag({ commit, state }, route) {
+    addVisitedTag({ commit }, route) {
       commit(types.ADD_VISITED_TAG, route)
     },
     removeVisitedTag({ commit, state }, tag) {
@@ -61,10 +61,10 @@ const tagView = {
         resolve(state.visitedViews)
       })
     },
-    closeOtherView({ commit, state }, route) {
+    closeOtherView({ commit }, route) {
       commit(types.CLOSE_OTHER_TAG, route)
     },
-    closeAllView({ commit, state }) {
+    closeAllView({ commit }) {
       return new Promise(resolve => {
         commit(types.CLOSE_ALL_TAG)
         resolve()

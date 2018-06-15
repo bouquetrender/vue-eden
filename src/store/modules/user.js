@@ -1,5 +1,5 @@
 import { loginbyUser, logout, getUserInfo } from '@/api/login'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { setToken, removeToken } from '@/utils/auth'
 import Cookies from 'js-cookie'
 import * as types from '../mutaion-types'
 
@@ -58,14 +58,14 @@ const user = {
         }
       })
     },
-    felogout({ commit, state }) {
+    felogout({ commit }) {
       return new Promise(resolve => {
         commit(types.SET_TOKEN, '')
         removeToken()
         resolve()
       })
     },
-    getUserInfo({ commit, state }) {
+    getUserInfo({ commit }) {
       return new Promise(async (resolve, reject) => {
         try {
           const response = await getUserInfo(Cookies.get('user'))
