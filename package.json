@@ -57,6 +57,7 @@
     "postcss-import": "^11.1.0",
     "postcss-url": "^7.3.2",
     "prettier": "^1.13.5",
+    "raw-loader": "^0.5.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue-svg-icon": "^1.2.9",
