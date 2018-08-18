@@ -5,14 +5,14 @@ const userMap = {
     roles: ['admin'],
     token: 'admin',
     introduction: 'i am admin',
-    avatar: 'https://i.loli.net/2018/05/26/5b0930d3ab3aa.jpg',
+    avatar: 'https://i.loli.net/2018/08/18/5b7819891bab1.jpg',
     name: 'Admin'
   },
   sakuya: {
     roles: ['sakuya'],
     token: 'sakuya',
     introduction: 'i am sakuya',
-    avatar: 'https://i.loli.net/2018/05/26/5b0930d3ab3aa.jpg',
+    avatar: 'https://i.loli.net/2018/08/18/5b7819891bab1.jpg',
     name: 'Sakuya'
   }
 }
