@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'widget'
-}
+  name: "widget"
+};
 </script>
 
 <style lang="stylus" scoped>

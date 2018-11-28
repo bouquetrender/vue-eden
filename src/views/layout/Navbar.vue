@@ -35,54 +35,58 @@
 </template>
 
 <script>
-import fullscreen from '@/components/fullscreen'
-import notice from '@/components/notice'
-import langselect from '@/components/langselect'
-import infodrop from './NavbarInfoDrop'
-import seamlessList from '@/components/seamlessList'
-import breadcrumb from '@/components/breadcrumb'
-import dayjs from 'dayjs'
+import fullscreen from "@/components/fullscreen";
+import notice from "@/components/notice";
+import langselect from "@/components/langselect";
+import infodrop from "./NavbarInfoDrop";
+import seamlessList from "@/components/seamlessList";
+import breadcrumb from "@/components/breadcrumb";
+import dayjs from "dayjs";
 
 export default {
-  name: 'Sidebar',
+  name: "Sidebar",
   components: {
     fullscreen,
     notice,
     infodrop,
     breadcrumb,
-    'lang-select': langselect,
-    'seamless-list': seamlessList
+    "lang-select": langselect,
+    "seamless-list": seamlessList
   },
   mounted() {
     if (!this.$store.getters.sidebar.sliderState) {
-      this.$store.dispatch('setSliderState', 'full')
+      this.$store.dispatch("setSliderState", "full");
     }
   },
   data() {
     return {
-      system_version: this.$store.state.app.version,
-      messageList: [
+      system_version: this.$store.state.app.version
+    };
+  },
+  computed: {
+    messageList: function() {
+      return [
         {
-          date: dayjs().format('YYYY-MM-DD'),
-          msg: this.$t('msg.msg1')
+          date: dayjs().format("YYYY-MM-DD"),
+          msg: this.$t("msg.msg1")
         },
         {
-          date: dayjs().format('YYYY-MM-DD'),
-          msg: this.$t('msg.msg2')
+          date: dayjs().format("YYYY-MM-DD"),
+          msg: this.$t("msg.msg2")
         },
         {
-          date: dayjs().format('YYYY-MM-DD'),
-          msg: this.$t('msg.msg3')
+          date: dayjs().format("YYYY-MM-DD"),
+          msg: this.$t("msg.msg3")
         }
-      ]
+      ];
     }
   },
   methods: {
     handleSwitchNavbar() {
-      this.$store.dispatch('toggleSideBar')
+      this.$store.dispatch("toggleSideBar");
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

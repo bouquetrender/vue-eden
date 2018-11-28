@@ -122,11 +122,11 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
-import TWEEN from '@tweenjs/tween.js'
-import lineChart from '@/components/linechart'
-import pieChart from '@/components/piechart'
-import { randomIntegerInRange } from '@/utils/tools'
+import Cookies from "js-cookie";
+import TWEEN from "@tweenjs/tween.js";
+import lineChart from "@/components/linechart";
+import pieChart from "@/components/piechart";
+import { randomIntegerInRange } from "@/utils/tools";
 
 const chartData = {
   newGamer: {
@@ -134,36 +134,36 @@ const chartData = {
     NSPlayerData: [2120, 3282, 5291, 2554, 2162, 3140, 3145]
   },
   fpsGame: [
-    { value: 320, name: 'Battlefield' },
-    { value: 240, name: 'Call Of Duty' },
-    { value: 149, name: 'Counter Strike' },
-    { value: 400, name: 'Titanfall' },
-    { value: 524, name: 'Splatoon' }
+    { value: 320, name: "Battlefield" },
+    { value: 240, name: "Call Of Duty" },
+    { value: 149, name: "Counter Strike" },
+    { value: 400, name: "Titanfall" },
+    { value: 524, name: "Splatoon" }
   ],
   fpsLegend: [
-    'Battlefield',
-    'Call Of Duty',
-    'Counter Strike',
-    'Splatoon',
-    'Titanfall'
+    "Battlefield",
+    "Call Of Duty",
+    "Counter Strike",
+    "Splatoon",
+    "Titanfall"
   ]
-}
+};
 
 const tweenTransition = (newValue, oldValue, onUpdateFn) => {
   function animate() {
     if (TWEEN.update()) {
-      requestAnimationFrame(animate)
+      requestAnimationFrame(animate);
     }
   }
   new TWEEN.Tween({ number: oldValue })
     .to({ number: newValue }, 1000)
     .onUpdate(onUpdateFn)
-    .start()
-  animate()
-}
+    .start();
+  animate();
+};
 
 export default {
-  name: 'dashboard',
+  name: "dashboard",
   components: {
     lineChart,
     pieChart
@@ -182,98 +182,98 @@ export default {
       lineChartData: chartData.newGamer,
       pieChartData: chartData.fpsGame,
       pieLegendData: chartData.fpsLegend,
-      newTasks: '',
+      newTasks: "",
       todolist: [
         {
           state: true,
-          task: 'Try out the new Eden Tasks'
+          task: "Try out the new Eden Tasks"
         },
         {
           state: false,
-          task: 'Plan weekend outing'
+          task: "Plan weekend outing"
         },
         {
           state: true,
-          task: 'Publish Friday blog post on Github'
+          task: "Publish Friday blog post on Github"
         },
         {
           state: false,
-          task: 'Conduct user interviews'
+          task: "Conduct user interviews"
         },
         {
           state: false,
-          task: 'Tips for creating better to-do lists'
+          task: "Tips for creating better to-do lists"
         },
         {
           state: false,
-          task: 'Finish Documentation'
+          task: "Finish Documentation"
         },
         {
           state: false,
-          task: 'Create Eden System Better'
+          task: "Create Eden System Better"
         }
       ]
-    }
+    };
   },
   watch: {
     newUsers(newValue, oldValue) {
       tweenTransition(newValue, oldValue, tween => {
-        this.tweenedNewUsers = tween.number.toFixed(0)
-      })
+        this.tweenedNewUsers = tween.number.toFixed(0);
+      });
     },
     pageVisits(newValue, oldValue) {
       tweenTransition(newValue, oldValue, tween => {
-        this.tweenedPageVisits = tween.number.toFixed(0)
-      })
+        this.tweenedPageVisits = tween.number.toFixed(0);
+      });
     },
     download(newValue, oldValue) {
       tweenTransition(newValue, oldValue, tween => {
-        this.tweenDownload = tween.number.toFixed(0)
-      })
+        this.tweenDownload = tween.number.toFixed(0);
+      });
     },
     switchPlayer(newValue, oldValue) {
       tweenTransition(newValue, oldValue, tween => {
-        this.tweenSwitchPlayer = tween.number.toFixed(0)
-      })
+        this.tweenSwitchPlayer = tween.number.toFixed(0);
+      });
     }
   },
   mounted() {
-    this.firstLoginnotify()
-    this.randomNum()
+    this.firstLoginnotify();
+    this.randomNum();
   },
   beforeDestroy() {
-    clearInterval(this.randomfn)
+    clearInterval(this.randomfn);
   },
   methods: {
     firstLoginnotify() {
-      const USERNAME = Cookies.get('username') || 'Sakuya'
-      if (this.$store.state.app.firstLogin === 'yep') {
+      const USERNAME = Cookies.get("username") || "Sakuya";
+      if (this.$store.state.app.firstLogin === "yep") {
         this.$notify.info({
           title: `Welcome, ${USERNAME}`,
-          message: 'First login system, You can view eden system documentation',
+          message: "First login system, You can view eden system documentation",
           duration: 6000,
           offset: 60
-        })
-        this.$store.dispatch('setFirstLogin')
+        });
+        this.$store.dispatch("setFirstLogin");
       }
     },
     randomNum() {
       this.randomfn = setInterval(() => {
-        this.newUsers = randomIntegerInRange(100, 10000)
-        this.pageVisits = randomIntegerInRange(100, 100000)
-        this.download = randomIntegerInRange(100, 1000)
-        this.switchPlayer = randomIntegerInRange(1000, 10000)
-      }, 3000)
+        this.newUsers = randomIntegerInRange(100, 10000);
+        this.pageVisits = randomIntegerInRange(100, 100000);
+        this.download = randomIntegerInRange(100, 1000);
+        this.switchPlayer = randomIntegerInRange(1000, 10000);
+      }, 3000);
     },
     addTasks() {
       this.todolist.push({
         state: false,
         task: this.newTasks
-      })
-      this.newTasks = ''
+      });
+      this.newTasks = "";
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

@@ -39,39 +39,39 @@
 
 <script>
 export default {
-  name: 'tagsviews',
+  name: "tagsviews",
   data() {
     return {
       tagsScrollLeft: 0,
       tags: [],
-      currentViewName: ''
-    }
+      currentViewName: ""
+    };
   },
   mounted() {
-    this.addViewTags()
+    this.addViewTags();
 
     setTimeout(() => {
-      let currTagIndex = null
+      let currTagIndex = null;
       this.visitedViews.forEach((view, index) => {
-        view.name === this.$route.name ? (currTagIndex = index) : null
-      })
-      currTagIndex ? this.moveToView(this.$refs.tag[currTagIndex].$el) : null
-    }, 1)
+        view.name === this.$route.name ? (currTagIndex = index) : null;
+      });
+      currTagIndex ? this.moveToView(this.$refs.tag[currTagIndex].$el) : null;
+    }, 1);
   },
   computed: {
     visitedViews() {
-      return this.$store.state.tagsView.visitedViews
+      return this.$store.state.tagsView.visitedViews;
     }
   },
   watch: {
     $route() {
-      this.addViewTags()
+      this.addViewTags();
     }
   },
   methods: {
     moveToView(tagEle) {
       if (tagEle.offsetLeft < -this.tagsScrollLeft) {
-        this.tagsScrollLeft = -tagEle.offsetLeft + 10
+        this.tagsScrollLeft = -tagEle.offsetLeft + 10;
       } else if (
         tagEle.offsetLeft + 10 > -this.tagsScrollLeft &&
         tagEle.offsetLeft + tagEle.offsetWidth <
@@ -84,81 +84,81 @@ export default {
             tagEle.offsetWidth -
             tagEle.offsetLeft -
             20
-        )
+        );
       } else {
         this.tagsScrollLeft = -(
           tagEle.offsetLeft -
           (this.$refs.tagsView.offsetWidth - 100 - tagEle.offsetWidth) +
           15
-        )
+        );
       }
     },
     addViewTags() {
-      const route = this.$route
+      const route = this.$route;
       if (!route.name) {
-        return false
+        return false;
       }
-      this.currentViewName = route.name
-      this.$store.dispatch('addVisitedTag', route)
+      this.currentViewName = route.name;
+      this.$store.dispatch("addVisitedTag", route);
     },
     async closeView(event, tagObj, tagIndex) {
       const visitedViews = await this.$store.dispatch(
-        'removeVisitedTag',
+        "removeVisitedTag",
         tagObj
-      )
+      );
       if (this.currentActive(tagObj)) {
-        const nextTag = visitedViews.slice(tagIndex)[0]
-        const prevTag = visitedViews.slice(tagIndex - 1)[0]
+        const nextTag = visitedViews.slice(tagIndex)[0];
+        const prevTag = visitedViews.slice(tagIndex - 1)[0];
         if (nextTag) {
-          this.$router.push(nextTag.path)
-          this.currentViewName = nextTag.name
+          this.$router.push(nextTag.path);
+          this.currentViewName = nextTag.name;
         } else if (prevTag) {
-          this.$router.push(prevTag.path)
-          this.currentViewName = prevTag.name
+          this.$router.push(prevTag.path);
+          this.currentViewName = prevTag.name;
         } else {
-          this.$router.push('/')
-          this.currentViewName = 'dashboard'
+          this.$router.push("/");
+          this.currentViewName = "dashboard";
         }
       }
     },
     currentActive(tagObj) {
       return (
         tagObj.name === this.$route.name || tagObj.path === this.$route.path
-      )
+      );
     },
     jumpTo(tag) {
-      this.$router.push(tag.path)
-      this.currentViewName = tag.name
+      this.$router.push(tag.path);
+      this.currentViewName = tag.name;
     },
     async handleCommand(command) {
-      const router = this.$route
+      const router = this.$route;
       switch (command) {
-        case 'closeOther':
-          if (this.visitedViews.length === 1) break
-          this.$store.dispatch('closeOtherView', router)
-          break
-        case 'closeAll':
-          await this.$store.dispatch('closeAllView')
-          this.$router.push('/')
-          this.currentViewName = 'dashboard'
-          break
+        case "closeOther":
+          if (this.visitedViews.length === 1) break;
+          this.$store.dispatch("closeOtherView", router);
+          break;
+        case "closeAll":
+          await this.$store.dispatch("closeAllView");
+          this.$router.push("/");
+          this.currentViewName = "dashboard";
+          break;
       }
     },
     getTitle(title) {
       if (this.$te(`route.${title}`)) {
-        return this.$t(`route.${title}`)
+        return this.$t(`route.${title}`);
       }
-      return title
+      return title;
     },
     handlescroll(event) {
-      let type = event.type
-      let delta = 0
-      if (type === 'DOMMouseScroll' || type === 'mousewheel') {
-        delta = event.wheelDelta ? event.wheelDelta : -(event.detail || 0) * 40
+      let type = event.type;
+      let delta = 0;
+      if (type === "DOMMouseScroll" || type === "mousewheel") {
+        delta = event.wheelDelta ? event.wheelDelta : -(event.detail || 0) * 40;
       }
-      let left = 0
+      let left = 0;
       if (delta > 0) {
-        left = Math.min(0, this.tagsScrollLeft + delta)
+        left = Math.min(0, this.tagsScrollLeft + delta);
       } else {
         if (
           this.$refs.tagsView.offsetWidth - 100 <
@@ -172,23 +172,23 @@ export default {
               100
             )
           ) {
-            left = this.tagsScrollLeft
+            left = this.tagsScrollLeft;
           } else {
             left = Math.max(
               this.tagsScrollLeft + delta,
               this.$refs.tagsView.offsetWidth -
                 this.$refs.tagsScroll.offsetWidth -
                 100
-            )
+            );
           }
         } else {
-          this.tagsScrollLeft = 0
+          this.tagsScrollLeft = 0;
         }
       }
-      this.tagsScrollLeft = left
+      this.tagsScrollLeft = left;
     }
   }
-}
+};
 </script>
 
 <style lang="stylus">

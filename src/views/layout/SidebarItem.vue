@@ -1,6 +1,8 @@
 <template>
   <div class="sidebar-wrap">
-    <template v-for="item in routes" v-if="!item.hidden && item.children">
+    <template 
+      v-for="item in routes" 
+      v-if="!item.hidden && item.children">
       <!-- 单级 -->
       <router-link 
         v-if="onlyOneShowingChildren(item.children) && 
@@ -62,14 +64,13 @@
           </router-link>
         </template>
       </el-submenu>
-      
     </template>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SidebarItem',
+  name: "SidebarItem",
   props: {
     routes: {
       type: Array
@@ -77,21 +78,21 @@ export default {
   },
   computed: {
     sliderState() {
-      return this.$store.getters.sidebar.sliderState
+      return this.$store.getters.sidebar.sliderState;
     }
   },
   methods: {
     onlyOneShowingChildren(children) {
-      return children.filter(item => !item.hidden).length === 1
+      return children.filter(item => !item.hidden).length === 1;
     },
     getTitle(title) {
       if (this.$te(`route.${title}`)) {
-        return this.$t(`route.${title}`)
+        return this.$t(`route.${title}`);
       }
-      return title
+      return title;
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

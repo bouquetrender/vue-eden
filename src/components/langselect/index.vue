@@ -14,24 +14,24 @@
 
 <script>
 export default {
-  name: 'langselect',
+  name: "langselect",
   computed: {
     language() {
-      return this.$store.state.app.language
+      return this.$store.state.app.language;
     }
   },
   methods: {
     handleSetLanguage(lang) {
-      this.$i18n.locale = lang
-      this.$store.dispatch('setLanguage', lang)
-      const message = this.$t('app.switchlang')
+      this.$i18n.locale = lang;
+      this.$store.dispatch("setLanguage", lang);
+      const message = this.$t("app.switchlang");
       this.$message({
         message,
-        type: 'success'
-      })
+        type: "success"
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

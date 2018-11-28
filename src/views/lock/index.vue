@@ -2,7 +2,7 @@
   <div class="lock-wrap">
     <el-carousel :height="carouselHeight" indicator-position="none">
       <el-carousel-item v-for="item in 4" :key="item">
-        <div>IMAGE HERE</div>
+        <div>{{$t('lock.topImg')}}</div>
       </el-carousel-item>
     </el-carousel>
     <div class="lock-container">
@@ -17,28 +17,28 @@
 
 <script>
 export default {
-  name: 'lock',
+  name: "lock",
   data() {
     return {
-      carouselHeight: '',
-      pwd: ''
-    }
+      carouselHeight: "",
+      pwd: ""
+    };
   },
   created() {
-    this.carouselHeight = `${window.innerHeight / 2}px`
+    this.carouselHeight = `${window.innerHeight / 2}px`;
   },
   methods: {
     unlock() {
-      if (this.pwd === '') {
-        this.$message.error('Please Enter Password!')
+      if (this.pwd === "") {
+        this.$message.error("Please Enter Password!");
       } else {
-        this.$message.success(this.$t('lock.unlock'))
-        this.$store.dispatch('setLockState', 'unlock')
-        this.$router.push('/')
+        this.$message.success(this.$t("lock.unlock"));
+        this.$store.dispatch("setLockState", "unlock");
+        this.$router.push("/");
       }
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

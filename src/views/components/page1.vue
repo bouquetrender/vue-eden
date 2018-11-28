@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'componentspage1'
-}
+  name: "componentspage1"
+};
 </script>
 
 <style lang="stylus" scoped>

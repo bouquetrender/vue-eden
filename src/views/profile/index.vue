@@ -86,64 +86,64 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
+import dayjs from "dayjs";
 
 const feedmock = [
   {
-    content: '审核 NeverBehave/telegram-recorder 项目并通过',
-    time: '一小时前'
+    content: "审核 NeverBehave/telegram-recorder 项目并通过",
+    time: "一小时前"
   },
   {
-    content: '开始监控 spring-raining 和另外两个用户',
-    time: '五小时前'
+    content: "开始监控 spring-raining 和另外两个用户",
+    time: "五小时前"
   },
   {
-    content: '审核 tonsky/FiraCode 项目并通过',
-    time: '一天前'
+    content: "审核 tonsky/FiraCode 项目并通过",
+    time: "一天前"
   },
   {
-    content: '开始监控 vladocar 和另外两个用户',
-    time: '一天前'
+    content: "开始监控 vladocar 和另外两个用户",
+    time: "一天前"
   },
   {
-    content: '开始监控 skevy 和另外五个用户',
-    time: '五天前'
+    content: "开始监控 skevy 和另外五个用户",
+    time: "五天前"
   },
   {
-    content: '开始监控 ChainCool 和另外两个用户',
-    time: '十二天前'
+    content: "开始监控 ChainCool 和另外两个用户",
+    time: "十二天前"
   },
   {
-    content: '创建了一个项目命名 Sakuyakun/vue-eden',
-    time: '一个月前'
+    content: "创建了一个项目命名 Sakuyakun/vue-eden",
+    time: "一个月前"
   }
-]
+];
 
 const visitHistoryMock = [
-  '权限控制',
-  '首页',
-  '控件',
-  '个人中心',
-  '表格展示',
-  '组件展示',
-  '审核列表',
-  '帮助中心',
-  '消息列表'
-]
+  "权限控制",
+  "首页",
+  "控件",
+  "个人中心",
+  "表格展示",
+  "组件展示",
+  "审核列表",
+  "帮助中心",
+  "消息列表"
+];
 
 export default {
-  name: 'profile',
+  name: "profile",
   data() {
     return {
-      search: '',
+      search: "",
       feedmock,
       visitHistoryMock,
       avatarUrl: this.$store.state.user.avatar,
       username: this.$store.state.user.name,
-      lastLoginDate: dayjs().format('YYYY-MM-DD HH:mm:ss')
-    }
+      lastLoginDate: dayjs().format("YYYY-MM-DD HH:mm:ss")
+    };
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

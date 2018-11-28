@@ -4,6 +4,11 @@
   "private": true,
   "author": "Sakuyakun <sakuyamicahella@gmail.com>",
   "description": "vue-eden is a extremely beautiful admin management system template uses vue and element-ui",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Sakuyakun/vue-eden"
@@ -11,65 +16,51 @@
   "bugs": {
     "url": "https://github.com/Sakuyakun/vue-eden/issues"
   },
-  "keywords": [
-    "vue",
-    "vue-eden",
-    "admin",
-    "management-system",
-    "admin-template"
-  ],
-  "scripts": {
-    "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "semi": false
-  },
   "dependencies": {
     "@tweenjs/tween.js": "^17.2.0",
     "axios": "^0.18.0",
-    "dayjs": "^1.7.5",
-    "echarts": "^4.1.0",
-    "element-ui": "^2.4.6",
+    "dayjs": "^1.7.7",
+    "echarts": "^4.2.0-rc.2",
+    "element-ui": "^2.4.11",
     "js-cookie": "^2.2.0",
     "mockjs": "^1.0.1-beta3",
-    "normalize.css": "^8.0.0",
+    "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
-    "query-string": "^6.1.0",
-    "screenfull": "^3.3.2",
+    "query-string": "^6.2.0",
+    "screenfull": "^3.3.3",
     "vue": "^2.5.17",
-    "vue-i18n": "^8.0.0",
-    "vue-router": "^3.0.1",
+    "vue-i18n": "^8.3.2",
+    "vue-router": "^3.0.2",
     "vue-seamless-scroll": "^1.1.16",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/babel-preset-app": "^3.0.1",
-    "@vue/cli-plugin-babel": "^3.0.1",
-    "@vue/cli-plugin-eslint": "^3.0.1",
-    "@vue/cli-service": "^3.0.1",
-    "@vue/cli-shared-utils": "^3.0.1",
-    "babel-plugin-component": "^1.1.1",
-    "eslint-config-prettier": "^3.0.1",
-    "eslint-plugin-prettier": "^2.6.2",
-    "postcss-import": "^12.0.0",
+    "@vue/cli-plugin-babel": "^3.2.0",
+    "@vue/cli-plugin-eslint": "^3.2.1",
+    "@vue/cli-service": "^3.2.0",
+    "@vue/eslint-config-prettier": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0-0",
+    "lint-staged": "^7.2.2",
+    "vue-template-compiler": "^2.5.17",
+    "postcss-import": "^12.0.1",
     "postcss-url": "^8.0.0",
-    "prettier": "^1.14.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "vue-svg-icon": "^1.2.9",
-    "vue-template-compiler": "^2.5.17",
-    "webpack-bundle-analyzer": "^2.13.1"
+    "vue-svg-icon": "^1.2.9"
   },
-  "engines": {
-    "node": ">= 8.0.0",
-    "npm": ">= 4.0.0"
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
 }

@@ -2,7 +2,7 @@ const getters = {
   /* app */
   sidebar: state => state.app.sidebar,
   getSliderStateWidth: state => {
-    return state.app.sidebar.sliderState === 'full' ? '240px' : '60px'
+    return state.app.sidebar.sliderState === "full" ? "240px" : "60px";
   },
   lockState: state => state.app.lock,
   /* permission */
@@ -11,5 +11,5 @@ const getters = {
   /* user */
   roles: state => state.user.roles,
   userInfo: state => state.user
-}
-export default getters
+};
+export default getters;

@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import screenfull from 'screenfull'
+import screenfull from "screenfull";
 
 export default {
-  name: 'fullscreen',
+  name: "fullscreen",
   props: {
     scale: {
       type: Number,
@@ -25,22 +25,22 @@ export default {
   data() {
     return {
       status: false
-    }
+    };
   },
   methods: {
     handleScreenFull() {
-      if (!this.enabled) return null
+      if (!this.enabled) return null;
       if (!screenfull.enabled) {
         this.$message({
-          message: 'fullscreen can not work',
-          type: 'warning'
-        })
-        return false
+          message: "fullscreen can not work",
+          type: "warning"
+        });
+        return false;
       }
-      screenfull.toggle()
+      screenfull.toggle();
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

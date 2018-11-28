@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'demo'
-}
+  name: "demo"
+};
 </script>
 
 <style lang="stylus" scoped>

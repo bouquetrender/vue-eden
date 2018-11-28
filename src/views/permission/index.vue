@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'permission'
-}
+  name: "permission"
+};
 </script>
 
 <style lang="stylus" scoped>

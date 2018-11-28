@@ -18,45 +18,45 @@
 
 <script>
 export default {
-  name: 'demo',
+  name: "demo",
   data() {
     return {
       username: this.$store.state.user.name,
       avatarUrl: this.$store.state.user.avatar
-    }
+    };
   },
   methods: {
     dropdownComm(command) {
       switch (command) {
-        case 'logout':
-          this.logouthandle()
-          break
-        case 'lock':
-          this.lockhandle()
-          break
-        case 'profile':
-          this.jumpToProfile()
-          break
+        case "logout":
+          this.logouthandle();
+          break;
+        case "lock":
+          this.lockhandle();
+          break;
+        case "profile":
+          this.jumpToProfile();
+          break;
       }
     },
     async logouthandle() {
-      await this.$store.dispatch('logout')
-      window.location.reload()
+      await this.$store.dispatch("logout");
+      window.location.reload();
     },
     lockhandle() {
-      this.$store.dispatch('setLockState', 'lock')
+      this.$store.dispatch("setLockState", "lock");
       this.$router.push({
-        path: '/lock'
-      })
-      this.$message.success(this.$t('lock.locked'))
+        path: "/lock"
+      });
+      this.$message.success(this.$t("lock.locked"));
     },
     jumpToProfile() {
       this.$router.push({
-        path: '/profile/index'
-      })
+        path: "/profile/index"
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

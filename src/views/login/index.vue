@@ -86,67 +86,44 @@
 </template>
 
 <script>
-import langselect from '@/components/langselect'
-import storage from '@/utils/storage'
-
-const useRegexp = {
-  exist: /\S+/
-}
+import langselect from "@/components/langselect";
+import storage from "@/utils/storage";
 
 export default {
-  name: 'login',
+  name: "login",
   components: {
     langselect
   },
   mounted() {
     this.$notify({
-      title: '登陆提示',
-      message: '用户名 admin 密码随意输入',
-      position: 'top-left',
+      title: "登陆提示",
+      message: "用户名 admin 密码随意输入",
+      position: "top-left",
       duration: 0
-    })
+    });
   },
   data() {
-    const validobj = {
-      username: [
-        { ruleName: 'exist', error: this.$t('login.valid.userexist') }
-      ],
-      password: [{ ruleName: 'exist', error: this.$t('login.valid.pwdexist') }]
-    }
-
-    const _typeof = val =>
-      Object.prototype.toString
-        .call(val)
-        .replace(/^\S+\s/, '')
-        .replace(/]$/, '')
-        .toLocaleLowerCase()
-
-    const validfn = (rule, value, callback) => {
-      const _validobj = validobj[rule.field.replace(/^\S+(?=\.)\./g, '')]
-      for (let i = 0; i < _validobj.length; i++) {
-        let _rule = useRegexp[_validobj[i].ruleName]
-        if (_typeof(_rule) === 'regexp') {
-          if (!_rule.test(value)) {
-            return callback(new Error(_validobj[i].error))
-          }
-        } else if (_typeof(_rule) === 'function') {
-          if (_rule(value, _validobj[i].params)) {
-            return callback(new Error(_validobj[i].error))
-          }
-        }
-      }
-      callback()
-    }
-
     return {
       lang: this.$store.state.app.language,
       ruleForm: {
-        username: storage.get('loginUser') || 'admin',
-        password: ''
+        username: storage.get("loginUser") || "admin",
+        password: ""
       },
       rules: {
-        username: [{ validator: validfn, trigger: 'blur', required: true }],
-        password: [{ validator: validfn, trigger: 'blur', required: true }]
+        username: [
+          {
+            required: true,
+            message: this.$t("login.valid.userexist"),
+            trigger: "change"
+          }
+        ],
+        password: [
+          {
+            required: true,
+            message: this.$t("login.valid.pwdexist"),
+            trigger: "change"
+          }
+        ]
       },
       remember: true,
       loading: false,
@@ -154,78 +131,78 @@ export default {
       switchRight: false,
       notforget: true,
       forgetForm: {
-        email: '',
-        newPassword: '',
-        confirmPassword: ''
+        email: "",
+        newPassword: "",
+        confirmPassword: ""
       }
-    }
+    };
   },
   computed: {
     translateLeft() {
       return {
-        'translate-left': true,
-        'login-col': true,
-        'switch-left': this.switchLeft
-      }
+        "translate-left": true,
+        "login-col": true,
+        "switch-left": this.switchLeft
+      };
     },
     translateRight() {
       return {
-        'translate-right': true,
-        'login-col': true,
-        'switch-right': this.switchLeft
-      }
+        "translate-right": true,
+        "login-col": true,
+        "switch-right": this.switchLeft
+      };
     }
   },
   methods: {
     wrapSwitch(state) {
-      this.switchLeft = !this.switchLeft
-      this.switchRight = !this.switchRight
+      this.switchLeft = !this.switchLeft;
+      this.switchRight = !this.switchRight;
       setTimeout(() => {
-        this.notforget = state
-        this.$refs['ruleForm'].resetFields()
+        this.notforget = state;
+        this.$refs["ruleForm"].resetFields();
         // this.$refs['forgetRuleForm'].resetFields()
-      }, 300)
+      }, 300);
     },
     handleLogin(formName) {
-      this.loading = true
+      this.loading = true;
       this.$refs[formName].validate(async valid => {
         if (valid) {
           try {
-            let { username, password } = this.ruleForm
+            let { username, password } = this.ruleForm;
             this.remember
-              ? storage.set('loginUser', username)
-              : storage.remove('loginUser', username)
-            const response = await this.$store.dispatch('loginbyUser', {
+              ? storage.set("loginUser", username)
+              : storage.remove("loginUser", username);
+            const response = await this.$store.dispatch("loginbyUser", {
               username: username.trim(),
               password: password
-            })
-            this.loading = false
+            });
+            this.loading = false;
             if (response.data) {
-              this.$notify.closeAll()
-              this.$router.push({ path: '/' })
+              this.$notify.closeAll();
+              this.$router.push({ path: "/" });
             } else {
               this.$message({
                 message: response.message,
-                type: 'error',
+                type: "error",
                 duration: 10000,
                 showClose: true
-              })
+              });
             }
           } catch (error) {
-            throw new Error(error)
+            throw new Error(error);
           }
         } else {
-          this.loading = false
-          this.$message.error(this.$t('login.validfaild'))
+          this.loading = false;
+          this.$message.error(this.$t("login.validfaild"));
         }
-      })
+      });
     },
     forgetHandle() {
-      this.$message.success(this.$t('login.pwdChanged'))
-      this.wrapSwitch(true)
+      this.$message.success(this.$t("login.pwdChanged"));
+      this.wrapSwitch(true);
     }
   }
-}
+};
 </script>
 
 <style lang="stylus">

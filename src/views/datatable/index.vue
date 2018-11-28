@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'datatable'
-}
+  name: "datatable"
+};
 </script>
 
 <style lang="stylus" scoped>

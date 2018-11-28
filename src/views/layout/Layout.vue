@@ -18,25 +18,25 @@
 </template>
 
 <script>
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
-import AppMain from './AppMain'
-import TagsView from './TagsView'
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
+import AppMain from "./AppMain";
+import TagsView from "./TagsView";
 
 export default {
-  name: 'Layout',
+  name: "Layout",
   components: {
-    'side-bar': Sidebar,
-    'nav-bar': Navbar,
-    'app-main': AppMain,
-    'tags-view': TagsView
+    "side-bar": Sidebar,
+    "nav-bar": Navbar,
+    "app-main": AppMain,
+    "tags-view": TagsView
   },
   computed: {
     asideWidth() {
-      return this.$store.getters.getSliderStateWidth
+      return this.$store.getters.getSliderStateWidth;
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

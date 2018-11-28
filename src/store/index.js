@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-import app from './modules/app'
-import permission from './modules/permission'
-import user from './modules/user'
-import tagsView from './modules/tagsView'
-import getters from './getters'
+import app from "./modules/app";
+import permission from "./modules/permission";
+import user from "./modules/user";
+import tagsView from "./modules/tagsView";
+import getters from "./getters";
 
 const store = new Vuex.Store({
   modules: {
@@ -18,6 +18,6 @@ const store = new Vuex.Store({
   },
   getters,
   strict: false
-})
+});
 
-export default store
+export default store;

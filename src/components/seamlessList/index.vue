@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'demo',
+  name: "demo",
   props: {
     messageList: {
       type: Array,
@@ -37,7 +37,7 @@ export default {
     }
   },
   data() {
-    return {}
+    return {};
   },
   computed: {
     classOption() {
@@ -46,10 +46,10 @@ export default {
         limitMoveNum: this.limitMoveNum,
         waitTime: this.waitTime,
         hoverStop: this.hoverStop
-      }
+      };
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

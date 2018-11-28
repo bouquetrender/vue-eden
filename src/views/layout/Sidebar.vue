@@ -15,29 +15,29 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import sidebarItem from './SidebarItem'
+import { mapGetters } from "vuex";
+import sidebarItem from "./SidebarItem";
 
 export default {
-  name: 'Sidebar',
+  name: "Sidebar",
   data() {
     return {
-      bg: '#556d84',
-      tc: '#fff',
-      atc: '#41B883'
-    }
+      bg: "#556d84",
+      tc: "#fff",
+      atc: "#41B883"
+    };
   },
   components: {
     sidebarItem
   },
   computed: {
-    ...mapGetters(['sidebar', 'permission_routers']),
+    ...mapGetters(["sidebar", "permission_routers"]),
     isCollapse() {
-      if (this.sidebar.sliderState === 'full') {
-        return false
+      if (this.sidebar.sliderState === "full") {
+        return false;
       }
-      return true
+      return true;
     }
   }
-}
+};
 </script>

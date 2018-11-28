@@ -1,13 +1,18 @@
-// https://eslint.org/docs/user-guide/configuring
-
 module.exports = {
-  "root": true,
-  "extends": [
-    "plugin:vue/essential",
-    "plugin:prettier/recommended",
-    "eslint:recommended"
-  ],
-  "parserOptions": {
-    "ecmaVersion": 2017
+  root: true,
+  env: {
+    node: true
+  },
+  extends: ["plugin:vue/essential", "@vue/prettier"],
+  rules: {
+    "generator-star-spacing": "off",
+    "no-undef": "off",
+    camelcase: "off",
+    "jsx-quotes": "off",
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+  },
+  parserOptions: {
+    parser: "babel-eslint"
   }
-}
+};
