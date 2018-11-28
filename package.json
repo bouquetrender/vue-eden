@@ -2,8 +2,6 @@
   "name": "vue-eden",
   "version": "0.1.0",
   "private": true,
-  "author": "Sakuyakun <sakuyamicahella@gmail.com>",
-  "description": "vue-eden is a extremely beautiful admin management system template uses vue and element-ui",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
