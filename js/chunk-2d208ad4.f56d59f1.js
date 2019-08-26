@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d208ad4"],{a68a:function(a,e,n){"use strict";n.r(e);var t=function(){var a=this,e=a.$createElement,n=a._self._c||e;return n("div",[a._v("\n  datatable page\n")])},c=[],l={name:"datatable"},u=l,d=n("2877"),r=Object(d["a"])(u,t,c,!1,null,"2c476684",null);e["default"]=r.exports}}]);

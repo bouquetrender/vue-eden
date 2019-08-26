@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d2163f3"],{c23a:function(n,e,s){"use strict";s.r(e);var a=function(){var n=this,e=n.$createElement,s=n._self._c||e;return s("div",[n._v("\n  permission page\n")])},i=[],t={name:"permission"},c=t,r=s("2877"),o=Object(r["a"])(c,a,i,!1,null,"9760956a",null);e["default"]=o.exports}}]);
