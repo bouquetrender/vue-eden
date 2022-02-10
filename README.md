@@ -4,7 +4,7 @@ Vue Eden 是一个美观的后台管理系统/集成方案，简称伊甸园。E
 
 此项目主要使用了 vue、vuex、vue-router、element-ui、stylus 进行开发。并使用 ESLint 进行代码检查工具并配合 prettier 进行格式化，无需担心代码风格。而插件除了 echarts 外，没有引入另外的大型库。所以例如富文本编辑器、excel处理等等功能需自行添加。登陆页面参考 vue-manager，部分代码参考 vue-element-admin。
 
-可以进[预览页面](https://vedimension.github.io/vue-eden/)查看
+可以进[预览页面](https://bouquetrender.github.io/vue-eden/)查看
 
 ## 目录结构
 
