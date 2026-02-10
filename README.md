@@ -1,3 +1,5 @@
+this project is not maintained anymore.
+
 项目停止维护于2018年11月16日
 
 Vue Eden 是一个美观的后台管理系统/集成方案，简称伊甸园。Eden 在后台集成解决方案引入没有过于复杂，只包含最基础和最常用的功能。也易移除页面模块，当做基础样式模板进行开发。这使得理解 Eden 结构代码并修改都变得十分友好，代码有参考 vue-element-admin。
